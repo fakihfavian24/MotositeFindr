@@ -10,6 +10,7 @@
   margin: 0;
   padding: 0;
   transition: all .2s linear;
+  /* background-color: #fffdf8; */
 }
 
 html {
@@ -34,8 +35,13 @@ html {
   color: #00214D;
 }
 
+.navbar-toggler {
+  border: none;
+}
+
 .navbar-toggler-icon {
   width: 1.2rem;
+
 }
 
 /* ========== HEADER ========== */
@@ -52,7 +58,7 @@ jumbotron-section h1 {
 }
 
 jumbotron-section p {
-  font-size: 18px !important;
+  font-size: 18px;
   color: #00214D;
 }
 
@@ -227,6 +233,11 @@ community-section {
 
   .navbar-brand {
     margin-left: 5px !important;
+  }
+
+  .navbar-nav {
+    text-align: center;
+    margin-left: 3rem !important;
   }
 
   jumbotron-section h1 {

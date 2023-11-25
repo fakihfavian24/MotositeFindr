@@ -5,7 +5,7 @@ class Footer extends HTMLElement {
 
   render() {
     this.innerHTML = `
-    <footer>
+    <footer class="border-top border">
 
             <div class="container">
               <div class="d-flex justify-content-evenly mt-5 mb-4">
