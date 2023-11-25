@@ -1,0 +1,43 @@
+.searchpages {
+  border-bottom: 1px solid #eee;
+}
+
+.card-searchpages {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card-title-searchpages {
+  color: #00214D;
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.badge {
+  font-size: 10px;
+  font-weight: 400;
+  margin-bottom: 5px;
+  border-radius: 4px;
+}
+
+
+
+
+@media screen and (max-width: 390px) {
+
+  .searchpages {
+    margin-top: -3rem !important;
+  }
+
+  .card-searchpages {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .card-searchpages .card-title {
+    font-size: 14px;
+    text-align: left;
+  }
+
+}

@@ -2,6 +2,8 @@ import 'regenerator-runtime'; /* for async await transpile */
 import '../styles/main.css';
 import '../styles/post.css';
 import '../styles/form.css';
+import '../styles/searchpages.css';
+import '../styles/detail.css';
 import App from './views/app';
 
 const app = new App({

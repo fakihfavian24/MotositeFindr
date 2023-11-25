@@ -70,9 +70,13 @@ jumbotron-section p {
   border: 1px solid #00214D;
   border-radius: 6px;
   background-color: #fff;
-  color: #00214D;
   font-size: 18px;
   font-weight: 400;
+}
+
+.btn-filter a {
+  text-decoration: none;
+  color: #00214D;
 }
 
 .btn-filter:hover {
@@ -85,9 +89,13 @@ jumbotron-section p {
   border: none;
   border-radius: 6px;
   background-color: #00EBC7;
-  color: #00214D;
   font-size: 18px;
   font-weight: 400;
+}
+
+.btn-search a {
+  text-decoration: none;
+  color: #00214D;
 }
 
 .btn-search:hover {
@@ -189,8 +197,19 @@ community-section {
   font-weight: bold;
 }
 
-.card-community .card-title {
-  font-size: 18px;
+.row-card {
+  margin-bottom: 4rem;
+}
+
+.card-title-community {
+  font-size: 16px;
+}
+
+.badge {
+  font-size: 10px;
+  font-weight: 400;
+  margin-bottom: 5px;
+  border-radius: 4px;
 }
 
 /* ========== COMMUNITY ========== */
