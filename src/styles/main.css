@@ -223,11 +223,29 @@ community-section {
 
 /* responsive */
 
-@media screen and (max-width: 390px) {
 
+@media screen and (max-width: 991px) {
   .navbar-brand {
     margin-left: 5px !important;
   }
+
+  .navbar-nav {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+
+@media screen and (max-width: 390px) {
+
+  .navbar-brand {
+      margin-left: 5px !important;
+    }
+  
+    .navbar-nav{
+      width: 100%;
+      text-align: center;
+    }
 
   jumbotron-section h1 {
     font-size: 24px;
