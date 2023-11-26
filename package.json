@@ -28,6 +28,7 @@
     "whatwg-fetch": "^3.6.19"
   },
   "dependencies": {
+    "aos": "^2.3.4",
     "regenerator-runtime": "^0.14.0"
   }
 }

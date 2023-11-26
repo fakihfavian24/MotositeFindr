@@ -11,7 +11,7 @@ class Stolen extends HTMLElement {
 
           <div class="col col-sm-6">
           <div class="stolen-up">
-            <div class="card-stolen card" style="max-width: 240px;">
+            <div class="card-stolen card" data-aos="fade-right" style="max-width: 240px;">
               <img src="./images/heros/gambar-dasar.jpg" class="card-img rounded-circle mx-auto d-block" alt="...">
               <div class="card-body text-center">
                 <h5 class="card-title">Merek Motor</h5>
@@ -20,7 +20,7 @@ class Stolen extends HTMLElement {
               </div>
             </div>
 
-            <div class="card-stolen card mb-5" style="max-width: 240px;">
+            <div class="card-stolen card mb-5" data-aos="fade-right" style="max-width: 240px;">
               <img src="./images/heros/gambar-dasar.jpg" class="card-img rounded-circle mx-auto d-block" alt="...">
               <div class="card-body text-center">
                 <h5 class="card-title">Merek Motor</h5>

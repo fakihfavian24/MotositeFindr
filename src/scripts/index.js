@@ -4,6 +4,7 @@ import '../styles/post.css';
 import '../styles/form.css';
 import '../styles/searchpages.css';
 import '../styles/detail.css';
+import AOS from 'aos';
 import App from './views/app';
 
 const app = new App({
@@ -16,4 +17,10 @@ window.addEventListener('hashchange', () => {
 
 window.addEventListener('load', () => {
   app.renderPage();
+});
+
+AOS.init({
+  once: false,
+  mirror: true,
+  duration: 300,
 });

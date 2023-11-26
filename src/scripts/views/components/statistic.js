@@ -13,10 +13,10 @@ class Statistic extends HTMLElement {
             <p>Learn about the prevalence of motorcycle theft</p>
           </div>
           <div class="col col-sm-6">
-            <div class="card-statistic card mb-4" style="max-width: 540px;">
+            <div class="card-statistic card mb-4" data-aos="fade-up" style="max-width: 540px;">
               <div class="row g-0">
                 <div class="col-md-3">
-                  <img src="./images/img/statistics1.jpeg" class="img-statistic img-fluid rounded" alt="...">
+                  <img src="./images/img/statistics1.jpeg" class="img-fluid rounded" alt="...">
                 </div>
                 <div class="col-md-8">
                   <div class="card-body">
@@ -27,10 +27,10 @@ class Statistic extends HTMLElement {
               </div>
             </div>
 
-            <div class="card-statistic card mb-5" style="max-width: 540px;">
+            <div class="card-statistic card mb-5" data-aos="fade-up" style="max-width: 540px;">
               <div class="row g-0">
                 <div class="col-md-3">
-                  <img src="./images/img/statistics2.jpeg" class="img-statistic img-fluid rounded" alt="...">
+                  <img src="./images/img/statistics2.jpeg" class="img-fluid rounded" alt="...">
                 </div>
                 <div class="col-md-8">
                   <div class="card-body">
