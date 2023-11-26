@@ -6,7 +6,7 @@ const Post = {
         <div class="row">
           <div class="heading-post col col-sm-6 text-center">
             <h2>How It Works</h2>
-            <p>Follow these steps to utilize Motor Finder and recover your lost motorcycle:</p>
+            <p>Follow these steps to utilize MotositeFindr and recover your lost motorcycle:</p>
 
             <div class="text-start">
             <button class="btn-getstarted" type="button"><a href="#/form">Get Started</a></button>
@@ -19,7 +19,7 @@ const Post = {
             <div class="card-post card mb-4" style="max-width: 540px;">
               <div class="row g-0">
                 <div class="col-md-3">
-                  <img src="./images/heros/gambar-dasar.jpg" class="img-statistic img-fluid rounded mb-1" alt="...">
+                  <img src="./images/img/step/step1.jpeg" class="img-statistic img-fluid rounded mb-1" alt="...">
                 </div>
                 <div class="col-md-8">
                   <div class="card-body">
@@ -33,12 +33,12 @@ const Post = {
             <div class="card-post card mb-4" style="max-width: 540px;">
               <div class="row g-0">
                 <div class="col-md-3">
-                  <img src="./images/heros/gambar-dasar.jpg" class="img-statistic img-fluid rounded" alt="...">
+                  <img src="./images/img/step/step2.jpeg" class="img-statistic img-fluid rounded" alt="...">
                 </div>
                 <div class="col-md-8">
                   <div class="card-body">
                     <h5 class="card-title">Step 2</h5>
-                    <p class="card-text">Motor Finder will analyze multiple sources and databases to track your motorcycle.</p>
+                    <p class="card-text"> MotositeFindr will analyze multiple sources and databases to track your motorcycle.</p>
                   </div>
                 </div>
               </div>
@@ -47,7 +47,7 @@ const Post = {
             <div class="card-post card mb-5" style="max-width: 540px;">
               <div class="row g-0">
                 <div class="col-md-3">
-                  <img src="./images/heros/gambar-dasar.jpg" class="img-statistic img-fluid rounded" alt="...">
+                  <img src="./images/img/step/step3.jpeg" class="img-statistic img-fluid rounded" alt="...">
                 </div>
                 <div class="col-md-8">
                   <div class="card-body">
