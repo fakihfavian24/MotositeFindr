@@ -29,7 +29,7 @@ class Community extends HTMLElement {
 
           <div class="col col-sm-3">
 
-            <div class="card-community card mt-2 mb-5" data-aos="fade-up" style="width: 15rem;">
+            <div class="card-community card mt-2 mb-5" data-aos="fade-right" style="width: 15rem;">
               <img src="./images/heros/gambar-dasar.jpg" class="card-img-top" alt="...">
               <div class="card-body">
                 <h5 class="card-title-community">Lost my motorcycle, any help is appreciated</h5>
