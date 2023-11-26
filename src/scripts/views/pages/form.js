@@ -4,7 +4,7 @@ const Form = {
     <section class="form">
       <div class="container">
         <div class="row">
-          <div class="heading-form col col-sm-6 text-center">
+          <div class="heading-form col col-sm-9 ms-auto text-center">
             <h2>Filling Out</h2>
             <p>Follow these steps to utilize Motor Finder and recover your lost motorcycle</p>
             
@@ -36,16 +36,12 @@ const Form = {
 
             </div>
 
-            <div class="text-end">
+            <div class="btn-form text-center">
             <button class="btn-submit" type="button"><a href="#/">Submit</a></button>
-          </div>
+            </div>
 
           </div>
 
-          <div class="col col-sm-6">
-          
-
-          </div>
         </div>
       </div>
     </section>
