@@ -4,6 +4,7 @@ import '../styles/post.css';
 import '../styles/form.css';
 import '../styles/searchpages.css';
 import '../styles/detail.css';
+import '../styles/login.css';
 import AOS from 'aos';
 import App from './views/app';
 

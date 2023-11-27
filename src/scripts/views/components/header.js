@@ -26,6 +26,9 @@ class Header extends HTMLElement {
             <li class="nav-item px-2">
               <a class="nav-link" href="#/contact">Contact</a>
             </li>
+            <li class="nav-item px-2">
+              <a class="nav-link" href="#/login"><i class="fa-solid fa-user"></i></a>
+            </li>
           </ul>
         </div>
       </div>
