@@ -31,8 +31,9 @@ const Form = {
 
               <div class="mb-5">
                 <label for="formFile" class="form-label">Add Image</label>
-                <input class="form-control" type="file" id="formFile">
+                <input class="form-control" type="file" id="formFile" accept="image/">
               </div>
+              <div id="imagePreview" class="mb-5"></div>
 
             </div>
 
@@ -49,7 +50,20 @@ const Form = {
   },
 
   async afterRender() {
+    const fileInput = document.getElementById('formFile');
+    
+    fileInput.addEventListener('change', () => {
+      const selectedFile = fileInput.files[0];
 
+      if (selectedFile) {
+        const validImageTypes = ['image/jpeg', 'image/png', 'image/gif'];
+
+        if (!validImageTypes.includes(selectedFile.type)) {
+          alert('Please select a valid image file (JPEG, PNG, GIF).');
+          fileInput.value = '';
+        }
+      }
+    });
   },
 };
 
