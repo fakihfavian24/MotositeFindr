@@ -37,6 +37,44 @@
   color: #333;
 }
 
+
+
+@media screen and (max-width: 768px) {
+
+  .img-detail img {
+    width: 100%;
+  }
+
+  .title-detail {
+    width: 350px;
+    font-size: 18px;
+    margin-top: 9rem;
+  }
+
+  .spec-detail-title {
+    width: 150px;
+    font-size: 13px;
+  }
+
+  .spec-detail-desc {
+    font-size: 13px;
+    font-weight: 500;
+    color: #333;
+  }
+
+  .title-desc {
+    font-size: 13px;
+    font-weight: bold;
+  }
+
+  .description {
+    font-size: 13px;
+    font-weight: 400;
+    color: #333;
+  }
+
+}
+
 @media screen and (max-width: 390px) {
 
   .img-detail {

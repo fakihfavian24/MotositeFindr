@@ -236,6 +236,62 @@ community-section {
   }
 }
 
+@media screen and (max-width: 768px) {
+
+  jumbotron-section h1 {
+    font-size: 36px;
+  }
+
+  jumbotron-section p {
+    font-size: 14px;
+  }
+
+  .card-statistic {
+    width: 280px;
+  }
+
+  .heading-statistic h2 {
+    font-size: 28px;
+  }
+
+  .heading-statistic p {
+    font-size: 14px;
+  }
+
+  .heading-stolen h2 {
+    font-size: 28px;
+  }
+
+  .heading-stolen p {
+    font-size: 14px;
+  }
+
+  .heading-community h2 {
+    font-size: 28px;
+  }
+
+  .heading-community p {
+    font-size: 14px;
+  }
+
+  statistic-section .card-title {
+    font-size: 16px;
+  }
+
+  statistic-section .card-text {
+    font-size: 12px;
+  }
+
+  community-section .card-community {
+    width: 9rem !important;
+  }
+
+  .card-title-community {
+    font-size: 13px;
+  }
+
+}
+
 
 @media screen and (max-width: 390px) {
 

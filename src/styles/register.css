@@ -52,14 +52,41 @@
   background-color: #08d6b7;
 }
 
-.btn-register-google {
-  width: 400px;
-  color: #00214D;
-  background-color: #fff;
-  border: 1px solid #d5d3d3;
-  font-size: 16px;
-  font-weight: 500;
-  margin-bottom: 1rem;
+@media screen and (max-width: 768px) {
+
+  .img-register {
+    width: 60%;
+    margin-top: 5rem;
+  }
+
+  .heading-register h2 {
+    font-size: 24px;
+    margin-left: 4rem;
+  }
+
+  .heading-register p {
+    font-size: 12px;
+    margin-left: 4rem;
+  }
+
+  .form-register .form-label {
+    font-size: 12px;
+    margin-left: 4rem;
+  }
+
+  .form-register .form-control {
+    width: 300px;
+    font-size: 12px;
+    margin-left: 4rem;
+  }
+
+  .btn-register {
+    width: 300px;
+    font-size: 12px;
+    margin-top: 1rem;
+    margin-left: 4rem;
+  }
+
 }
 
 @media screen and (max-width: 390px) {

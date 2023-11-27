@@ -69,7 +69,44 @@ html {
 }
 
 
+@media screen and (max-width: 768px) {
 
+  .heading-post h2 {
+    font-size: 34px;
+    margin-left: .5rem;
+  }
+
+  .heading-post p {
+    width: 350px;
+    font-size: 14px;
+    margin-left: .5rem;
+  }
+
+  .btn-getstarted {
+    width: 138px;
+    height: 46px;
+    margin-left: .5rem;
+  }
+
+  .btn-getstarted a {
+    font-size: 16px;
+  }
+
+  .card-post {
+    width: 280px;
+  }
+
+  .card-post .card-title {
+    font-size: 16px;
+    margin-top: -10px !important;
+  }
+
+  .card-post .card-text {
+    font-size: 12px;
+    margin-top: -5px !important;
+  }
+
+}
 
 @media screen and (max-width: 390px) {
 

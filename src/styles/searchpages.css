@@ -23,6 +23,14 @@
 
 
 
+@media screen and (max-width: 768px) {
+
+  .card-searchpages {
+    width: 10rem !important;
+    font-size: 12px;
+  }
+
+}
 
 @media screen and (max-width: 390px) {
 

@@ -18,7 +18,7 @@ const Post = {
 
             <div class="card-post card mb-4" data-aos="fade-left" style="max-width: 540px;">
               <div class="row g-0">
-                <div class="col-md-3">
+                <div class="col-md-4">
                   <img src="./images/img/step/step1.jpeg" class="img-statistic img-fluid rounded mb-1" alt="...">
                 </div>
                 <div class="col-md-8">
@@ -32,7 +32,7 @@ const Post = {
 
             <div class="card-post card mb-4" data-aos="fade-right" style="max-width: 540px;">
               <div class="row g-0">
-                <div class="col-md-3">
+                <div class="col-md-4">
                   <img src="./images/img/step/step2.jpeg" class="img-statistic img-fluid rounded" alt="...">
                 </div>
                 <div class="col-md-8">
@@ -46,7 +46,7 @@ const Post = {
 
             <div class="card-post card mb-5" data-aos="fade-left" style="max-width: 540px;">
               <div class="row g-0">
-                <div class="col-md-3">
+                <div class="col-md-4">
                   <img src="./images/img/step/step3.jpeg" class="img-statistic img-fluid rounded" alt="...">
                 </div>
                 <div class="col-md-8">

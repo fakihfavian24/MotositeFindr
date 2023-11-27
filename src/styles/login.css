@@ -81,6 +81,53 @@
   font-weight: 500;
 }
 
+@media screen and (max-width: 768px) {
+
+  .heading-login h2 {
+    font-size: 24px;
+  }
+
+  .heading-login p {
+    font-size: 12px;
+  }
+
+  .form-login .form-label {
+    font-size: 12px;
+  }
+
+  .form-login .form-control {
+    width: 300px;
+    font-size: 12px;
+  }
+
+  .heading-login a {
+    font-size: 12px;
+  }
+
+  .btn-login {
+    width: 300px;
+    font-size: 14px;
+  }
+
+  .btn-login-google {
+    width: 300px;
+    font-size: 14px;
+  }
+
+  .btn-login-google img {
+    width: 24px;
+  }
+
+  .register-create span {
+    font-size: 12px;
+  }
+
+  .register-create a {
+    font-size: 12px;
+  }
+
+}
+
 @media screen and (max-width: 390px) {
 
   .login {

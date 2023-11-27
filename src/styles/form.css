@@ -74,6 +74,17 @@ html {
 
 
 
+@media screen and (max-width: 768px) {
+
+  .heading-form {
+    margin-right: 9rem;
+  }
+
+  .btn-submit {
+    margin-left: 6rem;
+  }
+
+}
 
 @media screen and (max-width: 390px) {
 

@@ -15,7 +15,7 @@ class Statistic extends HTMLElement {
           <div class="col col-sm-6">
             <div class="card-statistic card mb-4" data-aos="fade-up" style="max-width: 540px;">
               <div class="row g-0">
-                <div class="col-md-3">
+                <div class="col-md-4">
                   <img src="./images/img/statistics1.jpeg" class="img-fluid rounded" alt="...">
                 </div>
                 <div class="col-md-8">
@@ -29,7 +29,7 @@ class Statistic extends HTMLElement {
 
             <div class="card-statistic card mb-5" data-aos="fade-up" style="max-width: 540px;">
               <div class="row g-0">
-                <div class="col-md-3">
+                <div class="col-md-4">
                   <img src="./images/img/statistics2.jpeg" class="img-fluid rounded" alt="...">
                 </div>
                 <div class="col-md-8">
