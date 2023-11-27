@@ -3,6 +3,7 @@ import Form from '../views/pages/form';
 import Home from '../views/pages/home';
 import Login from '../views/pages/login';
 import Post from '../views/pages/post';
+import Register from '../views/pages/register';
 import Searchpages from '../views/pages/searchpages';
 
 const routes = {
@@ -13,6 +14,7 @@ const routes = {
   '/searchpages': Searchpages,
   '/detail': Detail,
   '/login': Login,
+  '/register': Register,
 };
 
 export default routes;

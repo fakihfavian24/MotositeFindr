@@ -5,6 +5,7 @@ import '../styles/form.css';
 import '../styles/searchpages.css';
 import '../styles/detail.css';
 import '../styles/login.css';
+import '../styles/register.css';
 import AOS from 'aos';
 import App from './views/app';
 

@@ -70,12 +70,12 @@
   width: 28px;
 }
 
-.register span {
+.register-create span {
   font-size: 14px;
   color: #666;
 }
 
-.register a {
+.register-create a {
   font-size: 14px;
   color: #00214D;
   font-weight: 500;
@@ -159,12 +159,12 @@
     width: 22px;
   }
 
-  .register span {
+  .register-create span {
     font-size: 12px;
     color: #666;
   }
 
-  .register a {
+  .register-create a {
     font-size: 12px;
     color: #00214D;
     font-weight: 500;

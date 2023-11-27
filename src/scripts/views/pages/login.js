@@ -31,8 +31,8 @@ const Login = {
               <button class="btn-login-google btn" type="button"><img src="./images/img/google.png" class="card-img-top">Continue with Google</button>
             </div>
 
-            <div class="register">
-            <span>Not Registered Yet? <a href="#">Create an account</a>
+            <div class="register-create">
+            <span>Not Registered Yet? <a href="#/register">Create an account</a>
             </span>
             </div>
 

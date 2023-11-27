@@ -8,8 +8,8 @@ class Jumbotron extends HTMLElement {
     <section class="jumbotron">
       <div class="p-5 mb-5">
         <div class="container-fluid py-5">
-          <h1 class="fw-bold text-center pt-5">Find Your Lost Motorcycle</h1>
-          <p class="text-center">Enter the details of your lost motorcycle to start the search</p>
+          <h1 class="fw-bold text-center pt-5" data-aos="fade-right">Find Your Lost Motorcycle</h1>
+          <p class="text-center" data-aos="fade-left">Enter the details of your lost motorcycle to start the search</p>
 
           <div class="form-input">
             <input class="form-control" type="text" placeholder="Enter motor model" aria-label="default input example">
