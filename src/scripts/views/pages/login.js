@@ -6,7 +6,7 @@ const Login = {
         <div class="row"> 
 
           <div class="col col-sm-6 text-center">
-            <img src="./images/heros/gambar-dasar.jpg" class="img-login card-img-top" data-aos="fade-right" alt="...">
+            <img src="./images/img/login.jpg" class="img-login card-img-top" data-aos="fade-right" alt="...">
           </div>
 
           <div class="heading-login col col-sm-6">

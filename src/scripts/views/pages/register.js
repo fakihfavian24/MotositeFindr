@@ -25,7 +25,7 @@ const Register = {
           </div>
 
           <div class="col col-sm-6 text-center">
-            <img src="./images/heros/gambar-dasar.jpg" class="img-register card-img-top" data-aos="fade-left" alt="...">
+            <img src="./images/img/register.jpg" class="img-register card-img-top" data-aos="fade-left" alt="...">
           </div>
 
         </div>
