@@ -1,5 +1,6 @@
 const ejsMate = require('ejs-mate')
 const express = require('express');
+const session = require('express-session')
 const methodOverride = require('method-override')
 const mongoose = require('mongoose')
 const path = require ('path')
@@ -22,7 +23,22 @@ app.set('views',path.join(__dirname,'views'))
 app.use(express.urlencoded({extended:true}));
 // mengubahmethod post menjadi method yang akan di pakai melalui query 
 app.use(methodOverride('_method'))
+// folder public untuk file static 
+app.use(express.static(path.join(__dirname,'public')))
+// inisialisasi session 
+app.use(session(
+    {
+        secret: 'this-is-a-secret-key',
+        resave: false,
+        saveUnitialized : false,
+        cookie:{
+            httpOnly: true,
+            expires: Date.now()+1000*60*60*24*7,
+            maxAge: 100*60*60*24*27
+        }
+    }
 
+))
 
 
 app.get('/',(req,res)=>{
