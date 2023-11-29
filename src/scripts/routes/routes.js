@@ -1,3 +1,4 @@
+import Contact from '../views/pages/contact';
 import Detail from '../views/pages/detail';
 import Form from '../views/pages/form';
 import Home from '../views/pages/home';
@@ -15,6 +16,7 @@ const routes = {
   '/detail': Detail,
   '/login': Login,
   '/register': Register,
+  '/contact': Contact,
 };
 
 export default routes;
