@@ -111,7 +111,7 @@ app.post('/pages', validateMotor, wrapAsync(async(req,res,next)=>{
 // details
 app.get('/pages/:id', wrapAsync(async (req,res)=>{
     const {id} = req.params
-    const motor = await Motor.findById(id)
+    const motor = await Motor.findById(id).populate('comments')
     res.render('pages/detail',{motor})
 
 }))
@@ -145,6 +145,13 @@ app.post('/pages/:id/comments',validateComment, wrapAsync(async( req,res)=>{
     res.redirect(`/pages/${req.params.id}`)
 
 }))
+
+app.delete('/pages/:motor_id/comments/:comment_id', wrapAsync(async (req, res) => {
+    const { motor_id, comment_id } = req.params;
+    await Motor.findByIdAndUpdate(motor_id, { $pull: { comments: { _id: comment_id } } });
+    await Comment.findByIdAndDelete(comment_id);
+    res.redirect(`/pages/${motor_id}`);
+}));
 
 
 

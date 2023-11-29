@@ -1,4 +1,24 @@
 <% layout('layouts/app') %>
+<style>
+    .comment-container {
+        margin-top: 20px;
+    }
+
+    .comment-card {
+        margin-bottom: 15px;
+    }
+
+    .comment-date {
+        font-size: 12px;
+        color: #888;
+    }
+
+    .send-button {
+        background-color: #28a745;
+        color: #fff;
+    }
+</style>
+
 
 <div class="container mt-2 mb-5">
     <div class="row justify-content-center">
@@ -31,11 +51,35 @@
                 <form action="/pages/<%= motor._id %>/comments" method="POST" class="validated-form" novalidate>
                 <div class="form-group">
                     <textarea name="comment[body]" id="body" cols="20" rows="5" class="form-control" placeholder="komentar..." required></textarea>
+               
                 </div>
-                <button type="submit" class="btn btn-success mt-2">Send</button>
+                <!-- elemen HTML -->
+            <button type="submit" class="btn btn-success mt-2 " style="display: flex; justify-content: flex-end;">Send</button>
+
             </form>
+            <div class="card py-3 px-4 mt-2">
+            <% for (const comment of motor.comments) { %>
+                <div class="card mb-3 comment-card">
+                    <div class="card-body">
+                        <h5 class="card-text"><%= comment.body %></h5>
+                        <div class="comment-date">
+                            <%= comment.getShortFormattedDate() %>
+                        </div>
+                        <form action="/pages/<%= motor._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST" style="display:inline!important">
+                        <button class="btn btn-danger btn-sm">Delete</button>
+                        </form>
+                    </div>
+                </div>
+                
+            <% }  %>
+        </div>
             </div>
         </div>
         
     </div>
 </div>
+
+
+
+
+
