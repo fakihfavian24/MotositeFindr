@@ -1,6 +1,7 @@
 const express = require('express')
 const wrapAsync = require('../utils/wrapAsync')
 const ErrorHandler = require('../utils/ErrorHandler')
+const isValidObjectId = require('../middleware/isValidObjectId')
 // model
 const Motor = require('../models/motor')
 // schema 
@@ -21,6 +22,7 @@ const validateMotor = (req,res,next)=>{
 
 
 router.get('/', wrapAsync(async(req,res)=>{
+  const msg = req.flash('succes_msg','motor fetched successfully')
     const motors = await Motor.find()
     res.render('pages/index', {motors})
 }))
@@ -62,12 +64,13 @@ router.get('/post', (req,res)=>{
 router.post('/', validateMotor, wrapAsync(async(req,res,next)=>{
     const motor = new Motor(req.body.motor)
     await motor.save()
+    req.flash('success_msg','Selamat, anda berhasil menambahkan data')
     res.redirect('/pages')
     
 }))
 
 // details
-router.get('/:id', wrapAsync(async (req,res)=>{
+router.get('/:id', isValidObjectId('/pages'),wrapAsync(async (req,res)=>{
     const {id} = req.params
     const motor = await Motor.findById(id).populate('comments')
     res.render('pages/detail',{motor})
@@ -75,21 +78,23 @@ router.get('/:id', wrapAsync(async (req,res)=>{
 }))
 
 // menuju ke halaman edit 
-router.get('/:id/editForm',wrapAsync(async(req,res)=>{
+router.get('/:id/editForm',isValidObjectId('/pages'),wrapAsync(async(req,res)=>{
     const motor = await Motor.findById(req.params.id);
     res.render('pages/editForm', {motor})
 }))
 // mengirim dari halaman edit
-router.put('/:id',validateMotor,wrapAsync(async(req,res)=>{
+router.put('/:id',isValidObjectId('/pages'), validateMotor,wrapAsync(async(req,res)=>{
     const {id} = req.params
     const motor = await Motor.findByIdAndUpdate(id,{...req.body.motor})
+    const msg = req.flash('success_msg','Anda berhasil meng-update data')
     res.redirect('/pages')
 
 }))
 
 // delete motor 
-router.delete('/:id',wrapAsync(async(req,res)=>{
+router.delete('/:id',isValidObjectId('/pages'), wrapAsync(async(req,res)=>{
     await Motor.findByIdAndDelete(req.params.id)
+    const msg = req.flash('success_msg','Data berhasil dihapus')
     res.redirect('/pages')
 }))
 
