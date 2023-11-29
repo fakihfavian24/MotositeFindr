@@ -30,7 +30,28 @@ const Detail = {
             <p class="description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sunt dolore magni reprehenderit cupiditate ipsum nam reiciendis ad. Laudantium, sed nostrum!. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sunt dolore magni reprehenderit cupiditate ipsum nam reiciendis ad. Laudantium, sed nostrum!
             </p>
 
+            <div class="icon-detail">
+            <a class="icon-comment" href="#/"><i class="fa-regular fa-comment"></i></a>
+            <a class="icon-edit" href="#/"><i class="fa-regular fa-pen-to-square"></i></a>
+            </div>
+
           </div>
+
+          <div class="comment">
+            <p class="user-comment"><i class="fa-solid fa-user"></i> Mas John Doe</p>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis illo accusantium reprehenderit culpa Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis illo accusantium reprehenderit culpa delectus iste enim tenetur exercitationem deleniti nisi.
+            </p>
+            <a class="icon-comment-time" href="#/"><i class="fa-regular fa-comment"></i> <span> 5 min ago</span>
+            </a>
+
+            <p class="user-comment"><i class="fa-solid fa-user"></i> Mbak Jane Doe</p>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis illo accusantium reprehenderit culpa delectus iste enim tenetur exercitationem deleniti nisi.
+            </p>
+            <a class="icon-comment-time" href="#/"><i class="fa-regular fa-comment"></i>  <span> 5 min ago</span>
+            </a>
+          </div>
+
+          <button class="btn-comment-more btn" type="button">Load More</button>
 
         </div>
       </div>
