@@ -15,6 +15,7 @@ const Comment = require('./models/comment')
 
 // schemas 
 const {motorSchema} = require('./schemas/motor')
+const {commentSchema} = require('./schemas/comment')
 
 // connect to mngodb
 mongoose.connect('mongodb://127.0.0.1/motositefinder')
@@ -35,6 +36,17 @@ app.use(methodOverride('_method'))
 
 const validateMotor = (req,res,next)=>{
     const {error} = motorSchema.validate(req.body)
+    if(error){
+        const msg = error.details.map(el => el.message).join(',')
+        console.log(error)
+        return next(new ErrorHandler(error.details[0].message,400))
+    }else{
+        next()
+    }
+}
+
+const validateComment = (req,res,next)=>{
+    const {error} = commentSchema.validate(req.body)
     if(error){
         const msg = error.details.map(el => el.message).join(',')
         console.log(error)
@@ -124,7 +136,7 @@ app.delete('/pages/:id',wrapAsync(async(req,res)=>{
 }))
 
 //bagian komentar
-app.post('/pages/:id/comments', wrapAsync(async( req,res)=>{
+app.post('/pages/:id/comments',validateComment, wrapAsync(async( req,res)=>{
     const comment = new Comment(req.body.comment);
     const motor = await Motor.findById(req.params.id);
     motor.comments.push(comment);
