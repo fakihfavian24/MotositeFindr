@@ -146,6 +146,7 @@ app.post('/pages/:id/comments',validateComment, wrapAsync(async( req,res)=>{
 
 }))
 
+// menghapus komentar 
 app.delete('/pages/:motor_id/comments/:comment_id', wrapAsync(async (req, res) => {
     const { motor_id, comment_id } = req.params;
     await Motor.findByIdAndUpdate(motor_id, { $pull: { comments: { _id: comment_id } } });
