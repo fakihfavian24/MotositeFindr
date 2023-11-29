@@ -6,8 +6,11 @@ const methodOverride = require('method-override')
 const mongoose = require('mongoose')
 const path = require ('path')
 const app = express();
+const passport = require('passport')
+const LocalStrategy = require('passport-local')
 
-
+// models
+const User =require('./models/user')
 // connect to mngodb
 mongoose.connect('mongodb://127.0.0.1/motositefinder')
 .then((result)=>{
@@ -41,6 +44,15 @@ app.use(session(
 
 ))
 app.use(flash());
+
+app.use(passport.initialize());
+app.use(passport.session())
+passport.use(new LocalStrategy(User.authenticate()))
+passport.serializeUser(User.serializeUser())
+passport.deserializeUser(User.deserializeUser())
+
+
+
 app.use((req,res,next)=>{
     res.locals.success_msg = req.flash('success_msg');
     res.locals.error_msg = req.flash('error_msg')
@@ -52,6 +64,7 @@ app.get('/',(req,res)=>{
     res.render('home')
 })
 
+app.use('/',require('./routes/auth') )
 app.use('/pages',require('./routes/motor'))
 app.use('/pages/:motor_id/comments',require('./routes/comment'))
 

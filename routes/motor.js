@@ -2,6 +2,7 @@ const express = require('express')
 const wrapAsync = require('../utils/wrapAsync')
 const ErrorHandler = require('../utils/ErrorHandler')
 const isValidObjectId = require('../middlewares/isValidObjectId')
+const isAuth = require('../middlewares/isAuth')
 // model
 const Motor = require('../models/motor')
 // schema 
@@ -56,12 +57,12 @@ router.get('/search', wrapAsync(async (req, res) => {
 
 
 // create/form 
-router.get('/post', (req,res)=>{
+router.get('/post', isAuth, (req,res)=>{
     res.render('pages/post')
 })
 
 // submit post
-router.post('/', validateMotor, wrapAsync(async(req,res,next)=>{
+router.post('/', isAuth,validateMotor, wrapAsync(async(req,res,next)=>{
     const motor = new Motor(req.body.motor)
     await motor.save()
     req.flash('success_msg','Selamat, anda berhasil menambahkan data')
@@ -78,12 +79,12 @@ router.get('/:id', isValidObjectId('/pages'),wrapAsync(async (req,res)=>{
 }))
 
 // menuju ke halaman edit 
-router.get('/:id/editForm',isValidObjectId('/pages'),wrapAsync(async(req,res)=>{
+router.get('/:id/editForm',isAuth,isValidObjectId('/pages'),wrapAsync(async(req,res)=>{
     const motor = await Motor.findById(req.params.id);
     res.render('pages/editForm', {motor})
 }))
 // mengirim dari halaman edit
-router.put('/:id',isValidObjectId('/pages'), validateMotor,wrapAsync(async(req,res)=>{
+router.put('/:id',isAuth,isValidObjectId('/pages'), validateMotor,wrapAsync(async(req,res)=>{
     const {id} = req.params
     const motor = await Motor.findByIdAndUpdate(id,{...req.body.motor})
     const msg = req.flash('success_msg','Anda berhasil meng-update data')
@@ -92,7 +93,7 @@ router.put('/:id',isValidObjectId('/pages'), validateMotor,wrapAsync(async(req,r
 }))
 
 // delete motor 
-router.delete('/:id',isValidObjectId('/pages'), wrapAsync(async(req,res)=>{
+router.delete('/:id',isAuth,isValidObjectId('/pages'), wrapAsync(async(req,res)=>{
     await Motor.findByIdAndDelete(req.params.id)
     const msg = req.flash('success_msg','Data berhasil dihapus')
     res.redirect('/pages')
