@@ -1,7 +1,5 @@
 const ejsMate = require('ejs-mate')
 const express = require('express');
-const ErrorHandler = require('./utils/ErrorHandler')
-const Joi = require('joi')
 const methodOverride = require('method-override')
 const mongoose = require('mongoose')
 const path = require ('path')
@@ -9,12 +7,9 @@ const app = express();
 const wrapAsync = require('./utils/wrapAsync')
 
 
-// models
-const Motor = require('./models/motor')
+// modelss
 const Comment = require('./models/comment')
-
 // schemas 
-const {motorSchema} = require('./schemas/motor')
 const {commentSchema} = require('./schemas/comment')
 
 // connect to mngodb
@@ -34,16 +29,7 @@ app.use(express.urlencoded({extended:true}));
 // mengubahmethod post menjadi method yang akan di pakai melalui query 
 app.use(methodOverride('_method'))
 
-const validateMotor = (req,res,next)=>{
-    const {error} = motorSchema.validate(req.body)
-    if(error){
-        const msg = error.details.map(el => el.message).join(',')
-        console.log(error)
-        return next(new ErrorHandler(error.details[0].message,400))
-    }else{
-        next()
-    }
-}
+
 
 const validateComment = (req,res,next)=>{
     const {error} = commentSchema.validate(req.body)
@@ -60,12 +46,15 @@ app.get('/',(req,res)=>{
     res.render('home')
 })
 
+app.use('/pages',require('./routes/motor'))
+
+
 // searching and filtering
 function escapeRegex(text) {
     return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
   }
   
-  app.get('/pages', wrapAsync(async (req, res) => {
+  app.get('/pages/search', wrapAsync(async (req, res) => {
       let motors;
   
       // Handling search
@@ -87,53 +76,6 @@ function escapeRegex(text) {
     })
   );
 
-
-
-
-app.get('/pages', wrapAsync(async(req,res)=>{
-    const motors = await Motor.find()
-    res.render('pages/index', {motors})
-}))
-
-// create/form 
-app.get('/pages/post', (req,res)=>{
-    res.render('pages/post')
-})
-
-// submit post
-app.post('/pages', validateMotor, wrapAsync(async(req,res,next)=>{
-    const motor = new Motor(req.body.motor)
-    await motor.save()
-    res.redirect('/pages')
-    
-}))
-
-// details
-app.get('/pages/:id', wrapAsync(async (req,res)=>{
-    const {id} = req.params
-    const motor = await Motor.findById(id).populate('comments')
-    res.render('pages/detail',{motor})
-
-}))
-
-// menuju ke halaman edit 
-app.get('/pages/:id/editForm',wrapAsync(async(req,res)=>{
-    const motor = await Motor.findById(req.params.id);
-    res.render('pages/editForm', {motor})
-}))
-// mengirim dari halaman edit
-app.put('/pages/:id',validateMotor,wrapAsync(async(req,res)=>{
-    const {id} = req.params
-    const motor = await Motor.findByIdAndUpdate(id,{...req.body.motor})
-    res.redirect('/pages')
-
-}))
-
-// delete motor 
-app.delete('/pages/:id',wrapAsync(async(req,res)=>{
-    await Motor.findByIdAndDelete(req.params.id)
-    res.redirect('/pages')
-}))
 
 //bagian komentar
 app.post('/pages/:id/comments',validateComment, wrapAsync(async( req,res)=>{
