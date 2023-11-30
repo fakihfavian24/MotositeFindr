@@ -20,11 +20,6 @@ const Form = {
               </div>
 
               <div class="mb-4">
-                <label for="exampleFormControlInput1" class="form-label">Description</label>
-                <input type="text" class="form-control" placeholder="Enter motorcycle description">
-              </div>
-
-              <div class="mb-4">
                 <label for="exampleFormControlInput1" class="form-label">Date and Time</label>
                 <input type="date" class="form-control" placeholder="Enter date and time when the motorcycle was lostm">
               </div>
@@ -34,6 +29,11 @@ const Form = {
                 <input class="form-control" type="file" id="formFile" accept="image/">
               </div>
               <div id="imagePreview" class="mb-5"></div>
+
+              <div class="mb-4">
+                <label for="exampleFormControlInput1" class="form-label">Description</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Enter motorcycle description..."></textarea>
+              </div>
 
             </div>
 
@@ -51,7 +51,7 @@ const Form = {
 
   async afterRender() {
     const fileInput = document.getElementById('formFile');
-    
+
     fileInput.addEventListener('change', () => {
       const selectedFile = fileInput.files[0];
 
