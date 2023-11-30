@@ -7,6 +7,7 @@ import '../styles/detail.css';
 import '../styles/login.css';
 import '../styles/register.css';
 import '../styles/contact.css';
+import '../styles/edit.css';
 import AOS from 'aos';
 import App from './views/app';
 

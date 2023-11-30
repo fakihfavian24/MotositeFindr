@@ -1,0 +1,133 @@
+.edit {
+  margin-top: 2rem;
+  border-bottom: 1px solid #eee;
+}
+
+.heading-edit {
+  margin-top: 4rem;
+  margin-bottom: 6rem;
+}
+
+.heading-edit h2 {
+  text-align: left;
+  font-size: 36px;
+  color: #00214D;
+  font-weight: bold;
+  margin-left: 4rem;
+}
+
+.heading-edit p {
+  width: 500px;
+  text-align: left;
+  margin-left: 4rem;
+}
+
+.fill-edit {
+  text-align: left;
+  margin-left: 4rem;
+}
+
+.fill-edit input {
+  width: 490px;
+  margin-top: 2px;
+  margin-left: 0;
+}
+
+.fill-edit textarea {
+  width: 490px;
+  height: 200px;
+  margin-top: 2px;
+  margin-left: 0;
+}
+
+.fill-edit label {
+  color: #00214D;
+  font-weight: 500;
+}
+
+.btn-save {
+  width: 140px;
+  height: 48px;
+  border: none;
+  border-radius: 6px;
+  background-color: #00EBC7;
+  color: #00214D;
+  font-weight: 400;
+}
+
+.btn-save a {
+  text-decoration: none;
+  color: #00214D;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.btn-save:hover {
+  background-color: #08d6b7;
+}
+
+
+
+
+@media screen and (max-width: 768px) {
+
+  .heading-edit {
+    margin-right: 9rem;
+  }
+
+  .btn-save {
+    margin-left: 6rem;
+  }
+
+}
+
+@media screen and (max-width: 390px) {
+
+  .heading-edit {
+    margin-top: 3rem;
+    margin-bottom: 6rem;
+  }
+
+  .heading-edit h2 {
+    text-align: left;
+    font-size: 24px;
+    margin-left: 2rem;
+  }
+
+  .heading-edit p {
+    width: 250px;
+    font-size: 12px;
+    text-align: left;
+    margin-left: 2rem;
+  }
+
+  .fill-edit {
+    text-align: left;
+    margin-left: 2rem;
+    font-size: 12px;
+  }
+
+  .fill-edit input {
+    width: 280px;
+    margin-top: 2px;
+    margin-left: 0;
+  }
+
+  .fill-edit textarea {
+    width: 280px;
+    margin-top: 2px;
+    margin-left: 0;
+  }
+
+  .btn-save {
+    width: 110px;
+    height: 38px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .btn-save a {
+    font-size: 14px;
+  }
+
+}

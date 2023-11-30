@@ -32,7 +32,7 @@ const Detail = {
 
             <div class="icon-detail">
             <a class="icon-comment" href="#/"><i class="fa-regular fa-comment"></i></a>
-            <a class="icon-edit" href="#/"><i class="fa-regular fa-pen-to-square"></i></a>
+            <a class="icon-edit" href="#/edit"><i class="fa-regular fa-pen-to-square"></i></a>
             </div>
 
           </div>
