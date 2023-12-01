@@ -3,6 +3,7 @@ const wrapAsync = require('../utils/wrapAsync')
 const ErrorHandler = require('../utils/ErrorHandler')
 const isValidObjectId = require('../middlewares/isValidObjectId')
 const isAuth = require('../middlewares/isAuth')
+const isAuthor  = require('../middlewares/isAuthor')
 // model
 const Motor = require('../models/motor')
 // schema 
@@ -75,29 +76,38 @@ router.post('/', isAuth,validateMotor, wrapAsync(async(req,res,next)=>{
 // details
 router.get('/:id', isValidObjectId('/pages'),wrapAsync(async (req,res)=>{
     const {id} = req.params
-    const motor = await Motor.findById(id).populate('comments').populate('author')
-
+    const motor = await Motor.findById(id)
+    .populate({
+      path : 'comments',
+      populate:{
+        path:'author'
+      }
+    })
+    .populate('author')
+console.log(motor)
     console.log(motor)
     res.render('pages/detail',{motor})
 
 }))
 
 // menuju ke halaman edit 
-router.get('/:id/editForm',isAuth,isValidObjectId('/pages'),wrapAsync(async(req,res)=>{
-    const motor = await Motor.findById(req.params.id);
+router.get('/:id/editForm',isAuth,isAuthor.isAuthorMotor,isValidObjectId('/pages'),wrapAsync(async(req,res)=>{
+    
+  const {id} = req.params
+  const motor = await Motor.findById(id);
     res.render('pages/editForm', {motor})
 }))
 // mengirim dari halaman edit
-router.put('/:id',isAuth,isValidObjectId('/pages'), validateMotor,wrapAsync(async(req,res)=>{
+router.put('/:id',isAuth, isAuthor.isAuthorMotor, isValidObjectId('/pages'), validateMotor,wrapAsync(async(req,res)=>{
     const {id} = req.params
-    const motor = await Motor.findByIdAndUpdate(id,{...req.body.motor})
-    const msg = req.flash('success_msg','Anda berhasil meng-update data')
+    await Motor.findByIdAndUpdate(id,{...req.body.motor})
+    req.flash('success_msg','Anda berhasil meng-update data')
     res.redirect('/pages')
 
 }))
 
 // delete motor 
-router.delete('/:id',isAuth,isValidObjectId('/pages'), wrapAsync(async(req,res)=>{
+router.delete('/:id',isAuth,isAuthor.isAuthorMotor,isValidObjectId('/pages'), wrapAsync(async(req,res)=>{
     await Motor.findByIdAndDelete(req.params.id)
     const msg = req.flash('success_msg','Data berhasil dihapus')
     res.redirect('/pages')

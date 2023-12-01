@@ -23,6 +23,7 @@
 <div class="container mt-2 mb-5">
     <div class="row justify-content-center">
         <div class="col-6">
+            
                 <p><strong> <%= motor.author.username %></strong></p>
             
             <img src="<%= motor.image %>" alt="<%= motor.title %>" class="img-fluid mb-3">
@@ -39,12 +40,14 @@
                     <h5 class="card-title">Description</h5>
                     <p class="card-text"><%= motor.description %></p>
                 </div>
+                <% if(currentUser && motor.author.equals(currentUser._id)) {%>
                 <div class="card-body">
                     <a href="/pages/<%= motor._id %>/editForm" class="btn btn-warning text-white">Edit</a>
                     <form action="/pages/<%= motor._id %>?_method=DELETE" method="POST" style="display: inline;">
                         <button type="submit" class="btn btn-danger">Delete</button>
                     </form>
                 </div>
+                <% } %>
             </div>
         </div>
         <div class="col-6">
@@ -67,9 +70,11 @@
                         <div class="comment-date">
                             <%= comment.getShortFormattedDate() %>
                         </div>
+                        <% if(currentUser && comment.author.equals(currentUser._id)){ %>
                         <form action="/pages/<%= motor._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST" style="display:inline!important">
                         <button class="btn btn-danger btn-sm">Delete</button>
                         </form>
+                        <% } %>
                     </div>
                 </div>
                 

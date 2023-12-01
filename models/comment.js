@@ -6,7 +6,12 @@ const commentSchema = new Schema({
     dateTime: {
         type: Date,
         default: Date.now,
+    },
+    author:{
+        type:Schema.Types.ObjectId,
+        ref:'User'
     }
+
 });
 
 // Menambahkan metode untuk mendapatkan tanggal format singkat
