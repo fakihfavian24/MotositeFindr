@@ -6,9 +6,10 @@ const isAuth = require('../middlewares/isAuth')
 // model
 const Motor = require('../models/motor')
 // schema 
+const router = express.Router();
 const {motorSchema} = require('../schemas/motor')
 
-const router = express.Router();
+
 
 const validateMotor = (req,res,next)=>{
     const {error} = motorSchema.validate(req.body)
@@ -64,6 +65,7 @@ router.get('/post', isAuth, (req,res)=>{
 // submit post
 router.post('/', isAuth,validateMotor, wrapAsync(async(req,res,next)=>{
     const motor = new Motor(req.body.motor)
+    motor.author = req.user._id
     await motor.save()
     req.flash('success_msg','Selamat, anda berhasil menambahkan data')
     res.redirect('/pages')
@@ -73,7 +75,9 @@ router.post('/', isAuth,validateMotor, wrapAsync(async(req,res,next)=>{
 // details
 router.get('/:id', isValidObjectId('/pages'),wrapAsync(async (req,res)=>{
     const {id} = req.params
-    const motor = await Motor.findById(id).populate('comments')
+    const motor = await Motor.findById(id).populate('comments').populate('author')
+
+    console.log(motor)
     res.render('pages/detail',{motor})
 
 }))
