@@ -21,12 +21,17 @@ const Register = {
             <div class="d-grid gap-2">
               <button class="btn-register btn" type="button">Register</button>
             </div>
+            
+            <div class="already-have-account">
+            <p>Already Have Account? <a href="#/login">Click Here</a>
+            </p></div>
 
           </div>
 
           <div class="col col-sm-6 text-center">
             <img src="./images/img/register.jpg" class="img-register card-img-top" data-aos="fade-left" alt="...">
           </div>
+
 
         </div>
       </div>
