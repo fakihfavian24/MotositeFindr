@@ -10,6 +10,7 @@ import '../styles/contact.css';
 import '../styles/edit.css';
 import AOS from 'aos';
 import App from './views/app';
+import swRegister from './utils/sw-register';
 
 const app = new App({
   content: document.querySelector('#mainContent'),
@@ -21,6 +22,7 @@ window.addEventListener('hashchange', () => {
 
 window.addEventListener('load', () => {
   app.renderPage();
+  swRegister();
 });
 
 AOS.init({
