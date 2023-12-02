@@ -5,6 +5,7 @@ const isValidObjectId = require('../middlewares/isValidObjectId')
 const isAuth = require('../middlewares/isAuth')
 const {isAuthorMotor}  = require('../middlewares/isAuthor')
 const {validateMotor} = require('../middlewares/validator')
+const upload = require('../config/multer')
 // model
 const Motor = require('../models/motor')
 const MotorController = require('../controllers/motor')
@@ -43,7 +44,12 @@ router.get('/search', wrapAsync(async (req, res) => {
 // submit post
 router.route('/')
   .get( wrapAsync(MotorController.index))
-  .post(isAuth,validateMotor, wrapAsync(MotorController.store))
+  .post(isAuth,upload.array('image',5),validateMotor, wrapAsync(MotorController.store))
+  // .post(isAuth, upload.array('image', 5), (req,res)=>{
+  //   console.log(req.files)
+  //   console.log(req.body)
+  //   res.send('its works')
+  // })
 
 // create/form post
 router.get('/post', isAuth, MotorController.post)
@@ -53,7 +59,7 @@ router.get('/post', isAuth, MotorController.post)
 router.route('/:id')
   .get(isValidObjectId('/pages'),wrapAsync(MotorController.detail))
 // update mengirim dari halaman edit
-  .put(isAuth, isAuthorMotor, isValidObjectId('/pages'), validateMotor,wrapAsync(MotorController.update))
+  .put(isAuth, isAuthorMotor, isValidObjectId('/pages'), upload.array('image',5),validateMotor,wrapAsync(MotorController.update))
 // delete motor 
   .delete(isAuth,isAuthorMotor,isValidObjectId('/pages'), wrapAsync(MotorController.destroy))
 //  masuk kedalam halaman edit
