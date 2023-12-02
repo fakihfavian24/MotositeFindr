@@ -125,6 +125,7 @@ const Searchpages = {
     `;
   },
 
+  // eslint-disable-next-line no-empty-function
   async afterRender() {
 
   },

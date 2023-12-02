@@ -18,6 +18,7 @@ const routes = {
   '/login': Login,
   '/register': Register,
   '/contact': Contact,
+  // eslint-disable-next-line no-dupe-keys
   '/register': Register,
   '/edit': Edit,
 };

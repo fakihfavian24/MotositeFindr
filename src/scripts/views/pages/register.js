@@ -39,6 +39,7 @@ const Register = {
     `;
   },
 
+  // eslint-disable-next-line no-empty-function
   async afterRender() {
 
   },
