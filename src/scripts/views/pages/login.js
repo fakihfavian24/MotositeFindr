@@ -1,4 +1,6 @@
-const Login = () => `
+const Login = {
+  async render() {
+    return `
     <section class="login">
         <div class="container">
             <div class="row">
@@ -57,5 +59,10 @@ const Login = () => `
         </div>
     </section>
 `;
+  },
+  async afterRender() {
+    
+  }
+};
 
 export default Login;
