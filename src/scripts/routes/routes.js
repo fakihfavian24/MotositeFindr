@@ -14,7 +14,7 @@ const routes = {
   '/post': Post,
   '/form': FormPost,
   '/searchpages': Posted,
-  '/detail': Detail,
+  '/detail/:id': Detail,
   '/login': Login,
   '/register': Register,
   '/contact': Contact,

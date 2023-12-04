@@ -1,5 +1,4 @@
-const detailPost = (motor) => `
-    <div class="container">
+const detailPostCreator = (motor) => `
         <div class="row">
           <div class="img-detail col col-sm-6 ms-auto text-center">
             <img src="./images/heros/gambar-dasar.jpg" class="card-img-top" alt="...">
@@ -34,8 +33,8 @@ const detailPost = (motor) => `
           </div>
 
           <div class="comment">
-          ${motor.comments.map((review) => `
-            <p class="user-comment"><i class="fa-solid fa-user"></i> Mas John Doe</p>
+          ${motor.comments((review) => `
+            <p class="user-comment"><i class="fa-solid fa-user"></i> ${review.author.name}</p>
             <p>${review.body}</p>
             <a class="icon-comment-time" href="#/"><i class="fa-regular fa-comment"></i> <span> ${review.dateTime}</span>
             </a>
@@ -45,7 +44,6 @@ const detailPost = (motor) => `
           <button class="btn-comment-more btn" type="button">Load More</button>
 
         </div>
-      </div>
 `;
 
-export default detailPost;
+export default detailPostCreator;
