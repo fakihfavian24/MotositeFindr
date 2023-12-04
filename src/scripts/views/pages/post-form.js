@@ -1,4 +1,4 @@
-const Form = {
+const FormPost = {
   async render() {
     return `
     <section class="form">
@@ -67,4 +67,4 @@ const Form = {
   },
 };
 
-export default Form;
+export default FormPost;

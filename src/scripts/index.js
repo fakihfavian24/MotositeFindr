@@ -1,9 +1,9 @@
 import 'regenerator-runtime'; /* for async await transpile */
 import '../styles/main.css';
-import '../styles/post.css';
-import '../styles/form.css';
-import '../styles/searchpages.css';
-import '../styles/detail.css';
+import '../styles/post-form.css';
+import '../styles/post-page.css';
+import '../styles/posted-page.css';
+import '../styles/detail-post.css';
 import '../styles/login.css';
 import '../styles/register.css';
 import '../styles/contact.css';

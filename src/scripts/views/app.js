@@ -1,9 +1,9 @@
-import './components/header';
-import './components/jumbotron';
-import './components/statistic';
-import './components/stolen';
-import './components/community';
-import './components/footer';
+import '../components/header';
+import '../components/jumbotron';
+import '../components/statistic';
+import '../components/stolen';
+import '../components/community';
+import '../components/footer';
 import UrlParser from '../routes/url-parser';
 import routes from '../routes/routes';
 
