@@ -33,7 +33,7 @@ const detailPostCreator = (motor) => `
           </div>
 
           <div class="comment">
-          ${motor.comments((review) => `
+          ${motor.comments.map((review) => `
             <p class="user-comment"><i class="fa-solid fa-user"></i> ${review.author.name}</p>
             <p>${review.body}</p>
             <a class="icon-comment-time" href="#/"><i class="fa-regular fa-comment"></i> <span> ${review.dateTime}</span>

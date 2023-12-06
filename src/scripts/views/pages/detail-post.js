@@ -14,7 +14,7 @@ const DetailPost = {
     },
 
   async afterRender() {
-      const url = UrlParser.parseActiveUrlWithCombiner();
+      const url = UrlParser.parseActiveUrlWithoutCombiner();
       const motor = await MotorSource.detailMotor(url.id);
       console.log(motor);
       const detailContainer = document.querySelector('#detailMotor');

@@ -14,7 +14,7 @@ const PostedPage = {
             </section>
         `;
     },
-    // eslint-disable-next-line no-empty-function
+    
     async afterRender() {
         const dataMotor = await MotorSource.listMotor();
         console.log(dataMotor);

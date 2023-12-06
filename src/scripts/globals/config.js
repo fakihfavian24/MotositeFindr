@@ -1,5 +1,5 @@
 const CONFIG = {
-  BASE_URL_API: 'https://easy-ruby-duck-gear.cyclic.app/',
+  BASE_URL_API: 'https://motositefindr-api.vercel.app/',
   DEFAULT_LANGUAGE: 'en-us',
   CACHE_NAME: 'MotositeFindr',
 };
