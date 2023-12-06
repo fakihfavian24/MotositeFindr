@@ -1,7 +1,7 @@
 const detailPostCreator = (motor) => `
         <div class="row">
           <div class="img-detail col col-sm-6 ms-auto text-center">
-            <img src="./images/heros/gambar-dasar.jpg" class="card-img-top" alt="...">
+            <img src="${motor.imageURL}" class="card-img-top" alt="...">
           </div>
 
           <div class="desc-detail col col-sm-6 text-start">
