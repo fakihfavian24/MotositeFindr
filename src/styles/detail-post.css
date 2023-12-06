@@ -37,10 +37,11 @@
   color: #333;
 }
 
-.icon-detail .icon-comment {
+.icon-detail .btn-comment {
   color: #00214D;
   font-size: 20px;
   text-decoration: none;
+  border: none;
 }
 
 .icon-detail .icon-edit {
@@ -52,6 +53,33 @@
 
 .comment {
   margin-bottom: 2rem;
+}
+
+.modal-header {
+  border: none;
+}
+
+.modal-body input {
+  margin-top: 0;
+  margin-bottom: 0;
+  width: 95%;
+  border-bottom: 1px solid #eee !important;
+  border: none;
+}
+
+.modal-footer {
+  border: none;
+}
+
+.comment .btn-submit-comment {
+  background-color: #00EBC7;
+  color: #fff;
+}
+
+.comment h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #000;
 }
 
 .comment .user-comment {
