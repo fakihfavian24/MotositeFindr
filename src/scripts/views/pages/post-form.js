@@ -65,6 +65,8 @@ const FormPost = {
           Swal.fire({
             icon: 'error',
             title: 'Invalid Image Type',
+            confirmButtonColor: '#00EBC7',
+            color: '#00214D',
             text: 'Please select a valid image file (JPEG, PNG, JPG).',
           });
           fileInput.value = '';
