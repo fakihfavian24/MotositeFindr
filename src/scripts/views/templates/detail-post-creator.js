@@ -47,6 +47,7 @@ const detailPostCreator = (motor) => `
               <div class="modal-content">
                 <div class="modal-header">
                   <p class="user-comment"><i class="fa-solid fa-user"></i> John Doe</p>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                 <input class="form-control form-control-sm" type="text" placeholder="add comment" aria-label=".form-control-sm example">
