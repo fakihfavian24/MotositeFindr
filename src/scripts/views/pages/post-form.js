@@ -1,3 +1,5 @@
+import Swal from 'sweetalert2';
+
 const FormPost = {
   async render() {
     return `
@@ -56,10 +58,14 @@ const FormPost = {
       const selectedFile = fileInput.files[0];
 
       if (selectedFile) {
-        const validImageTypes = ['image/jpeg', 'image/png', 'image/gif'];
+        const validImageTypes = ['image/jpeg', 'image/png', 'image/jpg'];
 
         if (!validImageTypes.includes(selectedFile.type)) {
-          alert('Please select a valid image file (JPEG, PNG, GIF).');
+          Swal.fire({
+            icon: 'error',
+            title: 'Invalid Image Type',
+            text: 'Please select a valid image file (JPEG, PNG, JPG).',
+          });
           fileInput.value = '';
         }
       }
