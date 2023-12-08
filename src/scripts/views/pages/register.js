@@ -27,7 +27,7 @@ const Register = {
               </div>
 
               <div class="d-grid gap-2">
-                <button class="btn-register btn" type="button" onclick="register()">Register</button>
+                <button class="btn-register btn" type="button">Register</button>
               </div>
               
               <div class="already-have-account">
@@ -50,7 +50,7 @@ const Register = {
   },
 
   async afterRender() {
-    document.querySelector('.btn-register').addEventListener('click', async () => {
+    const registerFunction = async () => {
       const username = document.getElementById('username').value;
       const password = document.getElementById('password').value;
       const name = document.getElementById('name').value;
@@ -67,11 +67,19 @@ const Register = {
 
         const data = await response.json();
         alert(data.message);
+
+        // Jika registrasi berhasil, redirect ke halaman tertentu
+        if (response.ok) {
+          window.location.href = '#/login'; // Ganti dengan URL tujuan yang sesuai
+        }
+
       } catch (error) {
         console.error('Error:', error);
         alert('Registration failed. Please try again.');
       }
-    });
+    };
+
+    document.querySelector('.btn-register').addEventListener('click', registerFunction);
   },
 };
 
