@@ -80,6 +80,7 @@ const FormPost = {
             confirmButtonColor: '#00EBC7',
             color: '#00214D',
             text: 'Please select a valid image file (JPEG, PNG, JPG).',
+            footer: '<a href="#/contact">Why do I have this issue?</a>'
           });
           fileInput.value = '';
         }

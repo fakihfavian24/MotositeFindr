@@ -5,6 +5,17 @@
   transition: all .2s linear;
 }
 
+
+a {
+  text-decoration: none;
+  color: #00214D;
+}
+
+.swal2-footer a:hover{
+  text-decoration: underline;
+  color: #00214D;
+}
+
 html {
   overflow-x: hidden;
   scroll-padding-top: 5.5rem;
