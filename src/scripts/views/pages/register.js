@@ -1,3 +1,5 @@
+import CONFIG from "../../globals/config";
+
 const Register = {
   async render() {
     return `
@@ -57,7 +59,7 @@ const Register = {
       const email = document.getElementById('email').value;
 
       try {
-        const response = await fetch('https://black-tuna-toga.cyclic.app/register', {
+        const response = await fetch(`${CONFIG.BASE_URL_API}register`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -68,9 +70,8 @@ const Register = {
         const data = await response.json();
         alert(data.message);
 
-        // Jika registrasi berhasil, redirect ke halaman tertentu
         if (response.ok) {
-          window.location.href = '#/login'; // Ganti dengan URL tujuan yang sesuai
+          window.location.href = '#/login';
         }
 
       } catch (error) {
