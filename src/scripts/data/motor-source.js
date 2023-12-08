@@ -28,6 +28,22 @@ class MotorSource {
       throw error;
     }
   }
+
+  static async postMotor(data) {
+    const rawResponse = await fetch(API_ENDPOINT.POST_MOTOR, {
+      method: 'POST',
+      body: JSON.stringify(data),
+    });
+    return rawResponse;
+  }
+
+  static async register(data) {
+    const response = await fetch(API_ENDPOINT.REGISTER, {
+      method: 'POST',
+      body: JSON.stringify(data),
+    });
+    return response;
+  }
 }
 
 export default MotorSource;
