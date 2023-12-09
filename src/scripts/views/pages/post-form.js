@@ -86,7 +86,7 @@ const FormPost = {
         }
       }
     });
-    
+
     document.getElementById('formTambahData').addEventListener('submit', async (event) => {
       event.preventDefault();
 
@@ -117,11 +117,14 @@ const FormPost = {
 
         const data = await response.json();
         console.log('Data berhasil ditambahkan:', data);
+
+        window.location.hash = '#/home';
+
       } catch (error) {
         console.error('Gagal menambahkan data:', error.message);
       }
     });
-  
+
 
   },
 };
