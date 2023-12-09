@@ -1,4 +1,4 @@
-import CONFIG from '../../globals/config';
+import MotorSource from '../../data/motor-source';
 // eslint-disable-next-line import/no-unresolved, import/order
 import Swal from 'sweetalert2';
 
@@ -117,9 +117,6 @@ const FormPost = {
 
         const data = await response.json();
         console.log('Data berhasil ditambahkan:', data);
-
-        window.location.hash = '#/home';
-
       } catch (error) {
         console.error('Gagal menambahkan data:', error.message);
       }
