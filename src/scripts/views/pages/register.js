@@ -1,4 +1,4 @@
-import CONFIG from "../../globals/config";
+import MotorSource from "../../data/motor-source";
 
 const Register = {
   async render() {
@@ -58,26 +58,19 @@ const Register = {
       const name = document.getElementById('name').value;
       const email = document.getElementById('email').value;
 
-      try {
-        const response = await fetch(`${CONFIG.BASE_URL_API}register`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ username, password, name, email }),
-        });
-
-        const data = await response.json();
-        alert(data.message);
-
-        if (response.ok) {
-          window.location.href = '#/login';
-        }
-
-      } catch (error) {
-        console.error('Error:', error);
-        alert('Registration failed. Please try again.');
+      if(!username || !name || !email || !password){
+        alert('Isi woy');
+        return;
       }
+
+      const dataInput = {
+        username,
+        name,
+        email,
+        password,
+      };
+
+      MotorSource.register(dataInput);
     };
 
     document.querySelector('.btn-register').addEventListener('click', registerFunction);
