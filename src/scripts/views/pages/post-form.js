@@ -86,7 +86,7 @@ const FormPost = {
         }
       }
     });
-    
+
     document.getElementById('formTambahData').addEventListener('submit', async (event) => {
       event.preventDefault();
 
@@ -105,9 +105,24 @@ const FormPost = {
       formData.append('image', image);
       formData.append('motor[description]', description);
 
+      try {
+        const response = await fetch(`${CONFIG.BASE_URL_API}motors/create/upload`, {
+          method: 'POST',
+          body: formData
+        });
 
-      MotorSource.postMotor(formData);
+        if (!response.ok) {
+          throw new Error('Gagal menambahkan data');
+        }
+
+        const data = await response.json();
+        console.log('Data berhasil ditambahkan:', data);
+      } catch (error) {
+        console.error('Gagal menambahkan data:', error.message);
+      }
     });
+
+
   },
 };
 
