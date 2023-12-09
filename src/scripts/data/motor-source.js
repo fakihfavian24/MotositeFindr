@@ -30,19 +30,42 @@ class MotorSource {
   }
 
   static async postMotor(data) {
-    const rawResponse = await fetch(API_ENDPOINT.POST_MOTOR, {
-      method: 'POST',
-      body: JSON.stringify(data),
-    });
-    return rawResponse;
+    try{
+      const response = await fetch(API_ENDPOINT.POST_MOTOR, {
+        method: 'POST',
+        body: data,
+      });
+
+      if (response.ok){
+        window.location.href = '#/searchpages';
+      }
+      const responseJson = await response.json();
+      return responseJson;
+    }catch (error){
+      console.error('Error fetching data:', error);
+      throw error;
+    }
   }
 
   static async register(data) {
-    const response = await fetch(API_ENDPOINT.REGISTER, {
-      method: 'POST',
-      body: JSON.stringify(data),
-    });
-    return response;
+    try{
+      const response = await fetch(API_ENDPOINT.REGISTER, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok){
+        window.location.href = '#/login';
+      }
+      const responseJson = await response.json();
+      return responseJson;
+    }catch (error){
+      console.error('Error fetching data:', error);
+      throw error;
+    }
   }
 }
 

@@ -1,4 +1,4 @@
-import CONFIG from '../../globals/config';
+import MotorSource from '../../data/motor-source';
 // eslint-disable-next-line import/no-unresolved, import/order
 import Swal from 'sweetalert2';
 
@@ -86,7 +86,7 @@ const FormPost = {
         }
       }
     });
-    
+
     document.getElementById('formTambahData').addEventListener('submit', async (event) => {
       event.preventDefault();
 
@@ -121,7 +121,7 @@ const FormPost = {
         console.error('Gagal menambahkan data:', error.message);
       }
     });
-  
+
 
   },
 };
