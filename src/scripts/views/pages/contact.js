@@ -1,5 +1,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
+import Swal from 'sweetalert2';
+
 const Contact = {
   async render() {
     return `
@@ -55,19 +57,59 @@ const Contact = {
     const phone = document.getElementById("phone");
     const yourMessage = document.getElementById("yourMessage");
     const subject = document.getElementById("subject");
-
+  
     function sendEmail() {
-      const bodyMessage = `Name: ${fullName.value}<br> Email: ${email.value}<br> Phone: ${phone.value}<br> Message: ${yourMessage.value}`;
-      Email.send({
-        Host: "smtp.elasticemail.com",
-        Username: "mifthah.pbgame1@gmail.com",
-        Password: "03450C1208D896F2009311AF96005E577807",
-        To: "mifthah.pbgame1@gmail.com",
-        From: "mifthah.pbgame1@gmail.com",
-        Subject: subject.value,
-        Body: bodyMessage
-      }).then(message => alert("mail sent successfully"));
+      if (!fullName.value || !email.value || !phone.value || !yourMessage.value || !subject.value) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Please fill in all required fields!',
+          color: '#00214D',
+          confirmButtonColor: '#00EBC7',
+        });
+        return;
+      }
+      Swal.fire({
+        title: "Are you sure?",
+        text: "Do you want to send this email?",
+        color: "#00214D",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#00EBC7",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, send it!"
+      }).then((result) => {
+        // Check if the user confirmed
+        if (result.isConfirmed) {
+          // Send email
+          const bodyMessage = `Name: ${fullName.value}<br> Email: ${email.value}<br> Phone: ${phone.value}<br> Message: ${yourMessage.value}`;
+
+          Email.send({
+            Host: "smtp.elasticemail.com",
+            Username: "mifthah.pbgame1@gmail.com",
+            Password: "03450C1208D896F2009311AF96005E577807",
+            To: "mifthah.pbgame1@gmail.com",
+            From: "mifthah.pbgame1@gmail.com",
+            Subject: subject.value,
+            Body: bodyMessage
+          }).then(() => {
+            // Show success message
+            Swal.fire({
+              icon: 'success',
+              title: 'Success',
+              text: 'Mail sent successfully!',
+              color: '#00214D',
+              confirmButtonText: 'OK',
+              confirmButtonColor: '#00EBC7',
+            }).then(() => {
+              // Additional logic after the user clicks "OK"
+              console.log('User clicked OK');
+            });
+          });
+        }
+      });
     }
+    
     form.addEventListener("submit", e => {
       e.preventDefault();
       sendEmail();
