@@ -1,4 +1,4 @@
-import MotorSource from '../../data/motor-source';
+import CONFIG from '../../globals/config';
 // eslint-disable-next-line import/no-unresolved, import/order
 import Swal from 'sweetalert2';
 
@@ -87,95 +87,42 @@ const FormPost = {
       }
     });
     
+    document.getElementById('formTambahData').addEventListener('submit', async (event) => {
+      event.preventDefault();
 
-  const form = document.getElementById('formTambahData');
+      const title = document.getElementById('title').value;
+      const licensePlate = document.getElementById('licensePlate').value;
+      const model = document.getElementById('model').value;
+      const dateTime = document.getElementById('dateTime').value;
+      const image = document.getElementById('image').files[0];
+      const description = document.getElementById('description').value;
+
+      const formData = new FormData();
+      formData.append('motor[title]', title);
+      formData.append('motor[licensePlate]', licensePlate);
+      formData.append('motor[model]', model);
+      formData.append('dateTime', dateTime);
+      formData.append('image', image);
+      formData.append('motor[description]', description);
+
+      try {
+        const response = await fetch(`${CONFIG.BASE_URL_API}motors/create/upload`, {
+          method: 'POST',
+          body: formData
+        });
+
+        if (!response.ok) {
+          throw new Error('Gagal menambahkan data');
+        }
+
+        const data = await response.json();
+        console.log('Data berhasil ditambahkan:', data);
+      } catch (error) {
+        console.error('Gagal menambahkan data:', error.message);
+      }
+    });
   
-  form.addEventListener('submit', async (event) => {
-    event.preventDefault();
 
-    const title = document.getElementById('title').value;
-    const licensePlate = document.getElementById('licensePlate').value;
-    const model = document.getElementById('model').value;
-    const dateTime = document.getElementById('dateTime').value;
-    const image = document.getElementById('image').files[0];
-    const description = document.getElementById('description').value;
-
-    // Validation: Check if required fields are not empty
-    if (!title || !licensePlate || !model || !dateTime || !image || !description) {
-      alert('Please fill in all required fields.');
-      return;
-    }
-
-    // Prepare data for submission
-    const dataInput = {
-      title,
-      licensePlate,
-      model,
-      dateTime,
-      image: image.name, // Adjust this based on your needs
-      description,
-    };
-
-    // Send data to the server (you may want to handle errors appropriately)
-    await MotorSource.postMotor(dataInput);
-
-    // Update the UI with the new review
-    // eslint-disable-next-line no-use-before-define
-    updateUI(dataInput);
-  });
-
-  // Function to update the UI with the new review
-  const updateUI = (dataInput) => {
-    const detailContainer = document.querySelector('#detailMotor');
-    const options = { year: 'numeric', month: 'long', day: 'numeric' };
-    const date = new Date().toLocaleDateString('id-ID', options);
-
-    const newReview = `
-      <div class="row">
-        <div class="img-detail col col-sm-6 ms-auto text-center">
-            <img src="${dataInput.image}" class="card-img-top" alt="...">
-          </div>
-
-          <div class="desc-detail col col-sm-6 text-start">
-            <h5 class="title-detail mb-4">${dataInput.title}</h5>
-
-            <div class="row">
-            <p class="spec-detail-title col col-sm-3">License Plate:</p>
-            <p class="spec-detail-desc col col-sm-7">${dataInput.licensePlate}</p>
-            </div>
-
-            <div class="row">
-            <p class="spec-detail-title col col-sm-3">Model:</p>
-            <p class="spec-detail-desc col col-sm-7">${dataInput.model}</p>
-            </div>
-
-            <div class="row">
-            <p class="spec-detail-title col col-sm-3">Date and Time:</p>
-            <p class="spec-detail-desc col col-sm-7">${date}</p>
-            </div>
-
-            <h5 class="title-desc mt-3">Description</h5>
-            <p class="description">${dataInput.description}</p>
-
-            <div class="icon-detail">
-
-            <button type="button" class="btn btn-comment" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-            <i class="fa-regular fa-comment"></i>
-            </button>
-
-            
-            <a class="icon-edit" href="#/edit"><i class="fa-regular fa-pen-to-square"></i></a>
-            </div>
-
-          </div>
-      </div>
-    `;
-
-    detailContainer.innerHTML += newReview;
-
-    // Optional: Clear the form after submission
-    form.reset();
-  };
   },
 };
 
