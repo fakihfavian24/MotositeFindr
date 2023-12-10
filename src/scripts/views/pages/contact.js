@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
-import Swal from 'sweetalert2';
+import Swal from "sweetalert2";
 
 const Contact = {
   async render() {
@@ -57,15 +57,21 @@ const Contact = {
     const phone = document.getElementById("phone");
     const yourMessage = document.getElementById("yourMessage");
     const subject = document.getElementById("subject");
-  
+
     function sendEmail() {
-      if (!fullName.value || !email.value || !phone.value || !yourMessage.value || !subject.value) {
+      if (
+        !fullName.value ||
+        !email.value ||
+        !phone.value ||
+        !yourMessage.value ||
+        !subject.value
+      ) {
         Swal.fire({
-          icon: 'error',
-          title: 'Oops...',
-          text: 'Please fill in all required fields!',
-          color: '#00214D',
-          confirmButtonColor: '#00EBC7',
+          icon: "error",
+          title: "Oops...",
+          text: "Please fill in all required fields!",
+          color: "#00214D",
+          confirmButtonColor: "#00EBC7"
         });
         return;
       }
@@ -78,12 +84,23 @@ const Contact = {
         confirmButtonColor: "#00EBC7",
         cancelButtonColor: "#d33",
         confirmButtonText: "Yes, send it!"
-      }).then((result) => {
-        // Check if the user confirmed
+      }).then(result => {
         if (result.isConfirmed) {
-          // Send email
-          const bodyMessage = `Name: ${fullName.value}<br> Email: ${email.value}<br> Phone: ${phone.value}<br> Message: ${yourMessage.value}`;
-
+          const bodyMessage = `
+            <div style="font-family: 'Arial', sans-serif; padding: 10px; background-color: #f5f5f5;">
+              <h2 style="color: #00214D;">Contact Form</h2>
+              <hr style="border: 1px solid #00214D;">
+              <p><strong style="color: #00214D;">Name:</strong> ${fullName.value}</p>
+              <p><strong style="color: #00214D;">Email:</strong> ${email.value}</p>
+              <p><strong style="color: #00214D;">Phone:</strong> ${phone.value}</p>
+              <p><strong style="color: #00214D;">Subject:</strong> ${subject.value}</p>
+              <p style="color: #00214D;"><strong>Message:</strong></p>
+              <p style="padding: 10px; border: 1px solid #00214D; background-color: #ffffff;">
+                ${yourMessage.value}
+              </p>
+              <p style="color: #00214D; margin-top: 20px;">Thank you for contacting us!</p>
+            </div>
+          `;
           Email.send({
             Host: "smtp.elasticemail.com",
             Username: "mifthah.pbgame1@gmail.com",
@@ -93,23 +110,21 @@ const Contact = {
             Subject: subject.value,
             Body: bodyMessage
           }).then(() => {
-            // Show success message
             Swal.fire({
-              icon: 'success',
-              title: 'Success',
-              text: 'Mail sent successfully!',
-              color: '#00214D',
-              confirmButtonText: 'OK',
-              confirmButtonColor: '#00EBC7',
+              icon: "success",
+              title: "Success",
+              text: "Mail sent successfully!",
+              color: "#00214D",
+              confirmButtonText: "OK",
+              confirmButtonColor: "#00EBC7"
             }).then(() => {
-              // Additional logic after the user clicks "OK"
-              console.log('User clicked OK');
+              console.log("User clicked OK");
             });
           });
         }
       });
     }
-    
+
     form.addEventListener("submit", e => {
       e.preventDefault();
       sendEmail();
