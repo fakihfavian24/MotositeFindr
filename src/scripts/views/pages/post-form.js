@@ -1,4 +1,4 @@
-import MotorSource from '../../data/motor-source';
+import CONFIG from "../../globals/config";
 // eslint-disable-next-line import/no-unresolved, import/order
 import Swal from 'sweetalert2';
 
