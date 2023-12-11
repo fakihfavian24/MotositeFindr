@@ -1,9 +1,17 @@
 import API_ENDPOINT from "../globals/api-endpoint";
 
 class MotorSource {
+  static getAuthToken() {
+    return localStorage.getItem('authToken');
+  }
+
   static async listMotor() {
     try {
-      const response = await fetch(API_ENDPOINT.LIST);
+      const response = await fetch(API_ENDPOINT.LIST, {
+        headers: {
+          'Authorization': `Bearer ${this.getAuthToken}`,
+        },
+      });
       if (!response.ok) {
         throw new Error(`Failed to fetch: ${response.status} ${response.statusText}`);
       }
@@ -17,7 +25,11 @@ class MotorSource {
 
   static async detailMotor(id) {
     try {
-      const response = await fetch(API_ENDPOINT.DETAIL(id));
+      const response = await fetch(API_ENDPOINT.DETAIL(id), {
+        headers: {
+          'Authorization': `Bearer ${this.getAuthToken}`,
+        },
+      });
       if (!response.ok) {
         throw new Error(`Failed to fetch: ${response.status} ${response.statusText}`);
       }
@@ -33,6 +45,9 @@ class MotorSource {
     try{
       const response = await fetch(API_ENDPOINT.POST_MOTOR, {
         method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${this.getAuthToken}`,
+        },
         body: data,
       });
 

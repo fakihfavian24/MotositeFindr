@@ -11,6 +11,9 @@ const PostedPage = {
                         
                     </div>
                 </div>
+                <a href="#/post">
+                    <i class="fa-solid fa-circle-plus"></i>
+                </a>
             </section>
         `;
     },

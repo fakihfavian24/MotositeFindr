@@ -17,8 +17,8 @@ const Login = {
                     <p>See what is going on with your business</p>
 
                     <div class="form-login mb-3">
-                        <label for="username" class="form-label">Username</label>
-                        <input type="username" class="form-control" id="username" name="username" placeholder="Enter your email"/>
+                        <label for="email" class="form-label">email</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email"/>
 
                         <label for="password" class="form-label">Password</label>
                         <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password"/>
@@ -51,39 +51,52 @@ const Login = {
     },
     async afterRender() {
         document.getElementById('loginButton').addEventListener('click', async () => {
-            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
 
-            // Buat objek data yang akan dikirim ke API
             const data = {
-                username,
+                email,
                 password,
             };
 
+            // Show loading state
+            const loginButton = document.getElementById('loginButton');
+            loginButton.textContent = 'Logging in...';
+            loginButton.disabled = true;
+
             try {
-                // Kirim permintaan ke API untuk melakukan login
                 const response = await fetch(`${CONFIG.BASE_URL_API}login`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify(data),
+                    mode: 'cors',
                 });
 
                 if (!response.ok) {
                     throw new Error('Login failed');
                 }
 
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Login Successful',
-                    text: 'Welcome back!',
-                });
+                const responseData = await response.json();
 
-                window.location.hash = '#/home';
+                // Store the token in localStorage
+                localStorage.setItem('authToken', responseData.token);
+
+                // Redirect to the search pages
+                window.location.href = '#/searchpages';
             } catch (error) {
                 console.error('Login failed:', error.message);
-                // Handle error, misalnya menampilkan pesan kesalahan kepada pengguna
+                // Show a SweetAlert2 error message
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Login Failed',
+                    text: 'Please check your credentials and try again.',
+                });
+            } finally {
+                // Reset loading state
+                loginButton.textContent = 'Login';
+                loginButton.disabled = false;
             }
         });
     }
