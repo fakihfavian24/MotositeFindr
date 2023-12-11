@@ -16,6 +16,23 @@ html {
   border-bottom: 1px solid #eee;
 }
 
+.post i {
+  min-width: 44px;
+  min-height: 44px;
+  width: 55px;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #00EBC7;
+
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  cursor: pointer;
+  font-size: 44px;
+}
+
 .heading-post {
   margin-top: 12rem;
   margin-bottom: 12.5rem;
