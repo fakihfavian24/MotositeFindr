@@ -1,14 +1,14 @@
 class Header extends HTMLElement {
-    connectedCallback() {
-        this.render();
-        this.setupEventListeners();
-    }
+  connectedCallback() {
+    this.render();
+    this.setupEventListeners();
+  }
 
-    render() {
-        const authToken = localStorage.getItem('authToken');
-        const isLoggedIn = authToken !== null && authToken !== undefined && authToken !== '';
+  render() {
+    const authToken = localStorage.getItem('authToken');
+    const isLoggedIn = authToken !== null && authToken !== undefined && authToken !== '';
 
-        this.innerHTML = `
+    this.innerHTML = `
             <header>
                 <nav class="navbar navbar-expand-lg navbar-light fixed-top">
                     <div class="container-fluid">
@@ -30,11 +30,11 @@ class Header extends HTMLElement {
                                 <li class="nav-item px-2">
                                     <a class="nav-link" href="#/contact">Contact</a>
                                 </li>
-                                <li class="nav-item px-2" id="loginLogoutItem">
+                                <li class="btn-log nav-item px-2" id="loginLogoutItem">
                                     ${isLoggedIn
-                                        ? `<a class="nav-link" href="#" id="logoutLink"><i class="fa-solid fa-sign-out"></i> Logout</a>`
-                                        : `<a class="nav-link" href="#/login" id="loginLink"><i class="fa-solid fa-user"></i> Login</a>`
-                                    }
+        ? `<a class="nav-link" href="#" id="logoutLink"><i class="fa-solid fa-sign-out"></i> Logout</a>`
+        : `<a class="nav-link" href="#/login" id="loginLink"><i class="fa-solid fa-user"></i> Login</a>`
+      }
                                 </li>
                             </ul>
                         </div>
@@ -42,35 +42,35 @@ class Header extends HTMLElement {
                 </nav>
             </header>
         `;
-    }
+  }
 
-    setupEventListeners() {
-        const loginLogoutItem = this.querySelector('#loginLogoutItem');
+  setupEventListeners() {
+    const loginLogoutItem = this.querySelector('#loginLogoutItem');
 
-        if (loginLogoutItem) {
-            loginLogoutItem.addEventListener('click', (event) => {
-                const loginLink = this.querySelector('#loginLink');
-                const logoutLink = this.querySelector('#logoutLink');
+    if (loginLogoutItem) {
+      loginLogoutItem.addEventListener('click', (event) => {
+        const loginLink = this.querySelector('#loginLink');
+        const logoutLink = this.querySelector('#logoutLink');
 
-                if (event.target === loginLink) {
-                    // Redirect to the login page or any other desired page
-                    window.location.href = '#/login';
-                } else if (event.target === logoutLink) {
-                    // Remove the token from localStorage
-                    localStorage.removeItem('authToken');
+        if (event.target === loginLink) {
+          // Redirect to the login page or any other desired page
+          window.location.href = '#/login';
+        } else if (event.target === logoutLink) {
+          // Remove the token from localStorage
+          localStorage.removeItem('authToken');
 
-                    // Update the render to show the "Login" button
-                    this.updateRender();
-                }
-            });
+          // Update the render to show the "Login" button
+          this.updateRender();
         }
+      });
     }
+  }
 
-    updateRender() {
-        this.innerHTML = ''; // Clear the current content
-        this.render();
-        this.setupEventListeners();
-    }
+  updateRender() {
+    this.innerHTML = ''; // Clear the current content
+    this.render();
+    this.setupEventListeners();
+  }
 }
 
 customElements.define('header-section', Header);

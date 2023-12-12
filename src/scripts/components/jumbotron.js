@@ -16,6 +16,7 @@ class Jumbotron extends HTMLElement {
           </div>
 
           <div class="text-center mb-5">
+          
             <a href="#/"><button class="btn-filter" type="button">Filter</button></a>
             <a href="#/searchpages"><button class="btn-search" type="button">Search</button></a>
             </div>

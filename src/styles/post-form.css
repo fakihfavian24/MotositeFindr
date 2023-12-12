@@ -11,7 +11,7 @@ a {
   color: #00214D;
 }
 
-.swal2-footer a:hover{
+.swal2-footer a:hover {
   text-decoration: underline;
   color: #00214D;
 }
@@ -90,6 +90,50 @@ html {
   background-color: #08d6b7;
 }
 
+@media screen and (max-width: 991px) {
+
+  .heading-form {
+    margin-right: 9rem;
+  }
+
+  .heading-form h2 {
+    text-align: left;
+    font-size: 24px;
+    margin-left: 2rem;
+  }
+
+  .heading-form p {
+    width: 350px;
+    font-size: 12px;
+    margin-left: 2rem;
+  }
+
+  .fill-form {
+    text-align: left;
+    margin-left: 2rem;
+    font-size: 12px;
+  }
+
+  .fill-form input {
+    width: 380px;
+    margin-top: 2px;
+    margin-left: 0;
+    font-size: 12px;
+  }
+
+  .fill-form textarea {
+    width: 380px;
+    margin-top: 2px;
+    margin-left: 0;
+    font-size: 12px;
+  }
+
+  .btn-submit {
+    margin-left: 6rem;
+  }
+
+}
+
 
 
 @media screen and (max-width: 768px) {
@@ -98,8 +142,80 @@ html {
     margin-right: 9rem;
   }
 
+  .heading-form h2 {
+    text-align: left;
+    font-size: 24px;
+    margin-left: 2rem;
+  }
+
+  .heading-form p {
+    width: 350px;
+    font-size: 12px;
+    margin-left: 2rem;
+  }
+
+  .fill-form {
+    text-align: left;
+    margin-left: 2rem;
+    font-size: 12px;
+  }
+
+  .fill-form input {
+    width: 380px;
+    margin-top: 2px;
+    margin-left: 0;
+    font-size: 12px;
+  }
+
+  .fill-form textarea {
+    width: 380px;
+    margin-top: 2px;
+    margin-left: 0;
+    font-size: 12px;
+  }
+
   .btn-submit {
     margin-left: 6rem;
+  }
+
+}
+
+@media screen and (max-width: 576px) {
+
+  .heading-form h2 {
+    text-align: left;
+    font-size: 24px;
+    margin-left: 2rem;
+  }
+
+  .heading-form p {
+    width: 250px;
+    font-size: 12px;
+    margin-left: 2rem;
+  }
+
+  .fill-form {
+    text-align: left;
+    margin-left: 2rem;
+    font-size: 12px;
+  }
+
+  .fill-form input {
+    width: 380px;
+    margin-top: 2px;
+    margin-left: 0;
+    font-size: 12px;
+  }
+
+  .fill-form textarea {
+    width: 380px;
+    margin-top: 2px;
+    margin-left: 0;
+    font-size: 12px;
+  }
+
+  .btn-submit {
+    margin-left: 2rem;
   }
 
 }
