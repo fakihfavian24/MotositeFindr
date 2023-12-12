@@ -9,7 +9,7 @@ class MotorSource {
     try {
       const response = await fetch(API_ENDPOINT.LIST, {
         headers: {
-          'Authorization': `Bearer ${this.getAuthToken}`,
+          'Authorization': `Bearer ${this.getAuthToken()}`,
         },
       });
       if (!response.ok) {
@@ -27,7 +27,7 @@ class MotorSource {
     try {
       const response = await fetch(API_ENDPOINT.DETAIL(id), {
         headers: {
-          'Authorization': `Bearer ${this.getAuthToken}`,
+          'Authorization': `Bearer ${this.getAuthToken()}`,
         },
       });
       if (!response.ok) {
@@ -46,7 +46,7 @@ class MotorSource {
       const response = await fetch(API_ENDPOINT.POST_MOTOR, {
         method: 'POST',
         headers: {
-          'Authorization': `Bearer ${this.getAuthToken}`,
+          'Authorization': `Bearer ${this.getAuthToken()}`,
         },
         body: data,
       });
