@@ -99,7 +99,7 @@ const Login = {
                 loginButton.disabled = false;
             }
         });
-    }
+    },
 };
 
 export default Login;

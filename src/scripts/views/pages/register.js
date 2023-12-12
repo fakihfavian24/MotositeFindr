@@ -20,8 +20,8 @@ const Register = {
                 <label for="password" class="form-label">Password</label>
                 <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" required>
 
-                <label for="name" class="form-label">Name</label>
-                <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required>
+                <label for="fullname" class="form-label">Name</label>
+                <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Enter your name" required>
 
                 <label for="email" class="form-label">Email</label>
                 <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
@@ -55,17 +55,17 @@ const Register = {
     const registerFunction = async () => {
       const username = document.getElementById('username').value;
       const password = document.getElementById('password').value;
-      const name = document.getElementById('name').value;
+      const fullname = document.getElementById('fullname').value;
       const email = document.getElementById('email').value;
 
-      if(!username || !name || !email || !password){
-        alert('Isi woy');
+      if(!username || !fullname || !email || !password){
+        alert('Mohon di isi selurh data');
         return;
       }
 
       const dataInput = {
         username,
-        name,
+        fullname,
         email,
         password,
       };
