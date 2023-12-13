@@ -41,7 +41,7 @@ const Register = {
           </div>
 
           <div class="col col-sm-6 text-center">
-            <img src="./images/img/register.jpg" class="img-register card-img-top" data-aos="fade-left" alt="...">
+            <img src="./images/img/register.png" class="img-register card-img-top" data-aos="fade-left" alt="...">
           </div>
 
 
@@ -58,7 +58,7 @@ const Register = {
       const fullname = document.getElementById('fullname').value;
       const email = document.getElementById('email').value;
 
-      if(!username || !fullname || !email || !password){
+      if (!username || !fullname || !email || !password) {
         alert('Mohon di isi selurh data');
         return;
       }
