@@ -17,8 +17,8 @@ const Login = {
                     <p>See what is going on with your business</p>
 
                     <div class="form-login mb-3">
-                        <label for="email" class="form-label">email</label>
-                        <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email"/>
+                        <label for="username" class="form-label">Username</label>
+                        <input type="username" class="form-control" id="username" name="username" placeholder="Enter your username"/>
 
                         <label for="password" class="form-label">Password</label>
                         <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password"/>
@@ -51,11 +51,11 @@ const Login = {
     },
     async afterRender() {
         document.getElementById('loginButton').addEventListener('click', async () => {
-            const email = document.getElementById('email').value;
+            const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
 
             const data = {
-                email,
+                username,
                 password,
             };
 
