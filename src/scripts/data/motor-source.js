@@ -82,6 +82,35 @@ class MotorSource {
       throw error;
     }
   }
+
+  static async postComment(id, body) {
+    try {
+      const response = await fetch(API_ENDPOINT.COMMENT(id), {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${this.getAuthToken()}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ comment: { body } }),
+      });
+  
+      if (response.ok) {
+        return { success: true };
+      }
+  
+      const contentType = response.headers.get('content-type');
+      
+      if (contentType && contentType.includes('application/json')) {
+        const responseJson = await response.json();
+        return { success: false, message: responseJson.message || 'Gagal menambahkan komen!' };
+      } 
+        return { success: false, message: 'Unexpected response from the server' };
+      
+    } catch (error) {
+      console.error('Error posting comment:', error);
+      throw error;
+    }
+  }  
 }
 
 export default MotorSource;

@@ -50,19 +50,19 @@ const detailPostCreator = (motor) => `
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                <input class="form-control form-control-sm" type="text" placeholder="add comment" aria-label=".form-control-sm example">
+                <input id="commentInput" class="form-control form-control-sm" type="text" placeholder="add comment" aria-label=".form-control-sm example">
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-submit-comment" data-bs-dismiss="modal"><i class="fa-solid fa-paper-plane"></i></button>
+                  <button id="commentSubmitBtn" type="button" class="btn btn-submit-comment" data-bs-dismiss="modal"><i class="fa-solid fa-paper-plane"></i></button>
                 </div>
               </div>
             </div>
           </div>
 
-          ${motor.comments.map((review) => `
-            <p class="user-comment"><i class="fa-solid fa-user"></i> ${review.author.name}</p>
-            <p>${review.body}</p>
-            <a class="icon-comment-time" href="#/"><i class="fa-regular fa-comment"></i> <span> ${review.dateTime}</span>
+          ${motor.comments.map((comments) => `
+            <p class="user-comment"><i class="fa-solid fa-user"></i> ${motor.title}</p>
+            <p>${comments.body}</p>
+            <a class="icon-comment-time" href="#/"><i class="fa-regular fa-comment"></i> <span> ${comments.dateTime}</span>
             </a>
           `).join('')}
           </div>
