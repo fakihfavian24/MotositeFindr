@@ -30,12 +30,6 @@ const Login = {
 
                     <div class="d-grid gap-2">
                         <button id="loginButton" class="btn-login btn" type="button">Login</button>
-                        <button class="btn-login-google btn" type="button">
-                        <img
-                            src="./images/img/google.png"
-                            class="card-img-top"
-                        />Continue with Google
-                        </button>
                     </div>
 
                     <div class="register-create">
