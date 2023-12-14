@@ -1,6 +1,8 @@
 import MotorSource from "../../data/motor-source";
 import postList from "../templates/post-list-creator";
 
+require('@fortawesome/fontawesome-free/css/all.min.css');
+
 const PostedPage = {
     async render() {
         return `
