@@ -1,3 +1,4 @@
+import Swal from 'sweetalert2';
 import API_ENDPOINT from "../globals/api-endpoint";
 
 class MotorSource {
@@ -5,13 +6,62 @@ class MotorSource {
     return localStorage.getItem('authToken');
   }
 
+  static async register(data) {
+    try{
+      const response = await fetch(API_ENDPOINT.REGISTER, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok){
+        window.location.href = '#/login';
+      }
+      const responseJson = await response.json();
+      return responseJson;
+    }catch (error){
+      console.error('Error fetching data:', error);
+      throw error;
+    }
+  }
+
+  static async login(data) {
+    try{
+      const response = await fetch(API_ENDPOINT.LOGIN, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      const responseData = await response.json();
+
+      // Store the token in localStorage
+      localStorage.setItem('authToken', responseData.token);
+
+      // Redirect to the search pages
+      window.location.href = '#/searchpages';
+    } catch (error) {
+      console.error('Login failed:', error.message);
+      // Show a SweetAlert2 error message
+        Swal.fire({
+          icon: 'error',
+          title: 'Login Failed',
+          text: 'Please check your credentials and try again.',
+      });
+    } finally {
+        // Reset loading state
+        loginButton.textContent = 'Login';
+        loginButton.disabled = false;
+    }
+  }
+
   static async listMotor() {
     try {
-      const response = await fetch(API_ENDPOINT.LIST, {
-        headers: {
-          'Authorization': `Bearer ${this.getAuthToken()}`,
-        },
-      });
+      const response = await fetch(API_ENDPOINT.LIST);
       if (!response.ok) {
         throw new Error(`Failed to fetch: ${response.status} ${response.statusText}`);
       }
@@ -25,11 +75,7 @@ class MotorSource {
 
   static async detailMotor(id) {
     try {
-      const response = await fetch(API_ENDPOINT.DETAIL(id), {
-        headers: {
-          'Authorization': `Bearer ${this.getAuthToken()}`,
-        },
-      });
+      const response = await fetch(API_ENDPOINT.DETAIL(id));
       if (!response.ok) {
         throw new Error(`Failed to fetch: ${response.status} ${response.statusText}`);
       }
@@ -62,26 +108,19 @@ class MotorSource {
     }
   }
 
-  static async register(data) {
-    try{
-      const response = await fetch(API_ENDPOINT.REGISTER, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      });
-
-      if (response.ok){
-        window.location.href = '#/login';
-      }
-      const responseJson = await response.json();
-      return responseJson;
-    }catch (error){
-      console.error('Error fetching data:', error);
-      throw error;
+static async searchMotor(){
+  try{
+    const response = await fetch(API_ENDPOINT.SEARCH_LIST);
+    if (!response.ok) {
+      throw new Error(`Failed to fetch: ${response.status} ${response.statusText}`);
     }
+    const responseJson = await response.json();
+    return responseJson;
+  }catch (error){
+    console.error('Error fetching data:', error);
+    throw error;
   }
+}
 
   static async postComment(id, body) {
     try {
@@ -104,7 +143,7 @@ class MotorSource {
         const responseJson = await response.json();
         return { success: false, message: responseJson.message || 'Gagal menambahkan komen!' };
       } 
-        return { success: false, message: 'Unexpected response from the server' };
+        return { success: false, message: 'Anda perlu login terlebih dahulu' };
       
     } catch (error) {
       console.error('Error posting comment:', error);

@@ -46,7 +46,7 @@ const detailPostCreator = (motor) => `
             <div class="modal-dialog modal-dialog-centered">
               <div class="modal-content">
                 <div class="modal-header">
-                  <p class="user-comment"><i class="fa-solid fa-user"></i> John Doe</p>
+                  <p class="user-comment">Comment</p>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -60,7 +60,7 @@ const detailPostCreator = (motor) => `
           </div>
 
           ${motor.comments.map((comments) => `
-            <p class="user-comment"><i class="fa-solid fa-user"></i> ${motor.title}</p>
+            <p class="user-comment"><i class="fa-solid fa-user"></i> ${comments.author.fullname}</p>
             <p>${comments.body}</p>
             <a class="icon-comment-time" href="#/"><i class="fa-regular fa-comment"></i> <span> ${comments.dateTime}</span>
             </a>
