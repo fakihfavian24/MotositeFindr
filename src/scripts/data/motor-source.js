@@ -108,9 +108,10 @@ class MotorSource {
     }
   }
 
-static async searchMotor(){
+static async searchMotor(keyword){
   try{
-    const response = await fetch(API_ENDPOINT.SEARCH_LIST);
+    // eslint-disable-next-line prefer-template
+    const response = await fetch(API_ENDPOINT.SEARCH_LIST + `?search=${keyword}`);
     if (!response.ok) {
       throw new Error(`Failed to fetch: ${response.status} ${response.statusText}`);
     }
