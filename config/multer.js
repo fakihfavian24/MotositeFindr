@@ -1,7 +1,7 @@
 const multer = require('multer');
 const { CloudinaryStorage } = require('multer-storage-cloudinary');
 const cloudinary = require('cloudinary').v2;
-const ExpressError = require('../utils/ErrorHandler'); // Sesuaikan dengan modul kesalahan yang sesuai
+const ExpressError = require('../utils/ErrorHandler'); 
 
 // Konfigurasi Cloudinary
 cloudinary.config({

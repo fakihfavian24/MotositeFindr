@@ -5,11 +5,9 @@ const {generateLogToken} = require('../utils/generateLogToken')
 module.exports.register = async (req, res) => {
   try {
     const existingUser = await User.findOne({ email: req.body.email });
-
     if (existingUser) {
       return res.status(400).json({ error: 'User with the given email already exists' });
     }
-
     const newUser = await new User({
       fullname: req.body.fullname,
       email: req.body.email,
@@ -23,7 +21,6 @@ module.exports.register = async (req, res) => {
     res.status(500).json({ error: 'Error registering user' });
   }
 };
-
 
 module.exports.login = async (req,res)=>{
   const user = await User.findOne({email:req.body.email})
