@@ -59,6 +59,9 @@ app.use((req, res, next) => {
 
 
 // Routes...
+app.get ('/', (req,res)=>{
+    res.send('API Server MotositeFindr')
+})
 app.use('/', require('./routes/auth'));
 app.use('/motors', require('./routes/motor'));
 app.use('/motors/:motor_id/', require('./routes/comment'));
