@@ -1,9 +1,4 @@
 # MOTOSITEFINDR-BACK-END
-# Maneyfy-BackEnd
-
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 
 ## Getting Started
 
