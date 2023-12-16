@@ -1,5 +1,3 @@
-import Swal from 'sweetalert2';
-
 class Jumbotron extends HTMLElement {
   connectedCallback() {
     this.render();
