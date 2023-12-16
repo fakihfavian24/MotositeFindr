@@ -2,7 +2,6 @@ const mongoose = require('mongoose')
 const Comment = require("./comment")
 const Schema = mongoose.Schema;
 
-
 const motorSchema = new Schema ({
     title: String,
     licensePlate: String,
@@ -37,6 +36,4 @@ motorSchema.post(`findOneAndDelete`, async function(doc) {
     await Comment.deleteMany({_id:{$in:doc.comments}})
   }
 })
-
-
 module.exports = mongoose.model ('Motor',motorSchema)

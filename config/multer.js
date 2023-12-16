@@ -10,12 +10,10 @@ cloudinary.config({
     api_secret: '6nEulps4pij6EsX0RwMNZESg5gc'
 });
 
-// Konfigurasi penyimpanan Cloudinary untuk multer
 const storage = new CloudinaryStorage({
     cloudinary: cloudinary,
 });
 
-// Konfigurasi objek multer
 const upload = multer({
     storage: storage,
     fileFilter: function(req, file, cb) {
