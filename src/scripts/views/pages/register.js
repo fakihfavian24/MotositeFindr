@@ -1,3 +1,4 @@
+import Swal from "sweetalert2";
 import MotorSource from "../../data/motor-source";
 
 const Register = {
@@ -59,7 +60,11 @@ const Register = {
       const email = document.getElementById('email').value;
 
       if (!username || !fullname || !email || !password) {
-        alert('Mohon di isi selurh data');
+        Swal.fire({
+          icon: 'error',
+          title: 'Incomplete Input',
+          text: 'Please fill in all fields.',
+        });
         return;
       }
 
@@ -70,7 +75,21 @@ const Register = {
         password,
       };
 
-      MotorSource.register(dataInput);
+      try {
+        await MotorSource.register(dataInput);
+        Swal.fire({
+          icon: 'success',
+          title: 'Registration Successful',
+          text: 'You have successfully registered!',
+        });
+      } catch (error) {
+        console.error('Error during registration:', error);
+        Swal.fire({
+          icon: 'error',
+          title: 'Registration Failed',
+          text: 'An unexpected error occurred. Please try again later.',
+        });
+      }
     };
 
     document.querySelector('.btn-register').addEventListener('click', registerFunction);
