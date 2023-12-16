@@ -1,3 +1,4 @@
+import Swal from 'sweetalert2';
 import MotorSource from '../../data/motor-source';
 
 const Login = {
@@ -42,22 +43,54 @@ const Login = {
     </section>
 `;
     },
+
     async afterRender() {
         document.getElementById('loginButton').addEventListener('click', async () => {
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
+            if (!email || !password) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Incomplete Input',
+                    text: 'Please enter both email and password.',
+                });
+                return;
+            }
 
             const data = {
                 email,
                 password,
             };
-
-            // Show loading state
             const loginButton = document.getElementById('loginButton');
             loginButton.textContent = 'Logging in...';
             loginButton.disabled = true;
 
-            MotorSource.login(data);
+            try {
+                const response = await MotorSource.login(data);
+                if (response.success) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Login Successful',
+                        text: 'You have successfully logged in!',
+                    });
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Login Failed',
+                        text: 'Invalid email or password. Please try again.',
+                    });
+                }
+            } catch (error) {
+                console.error('Error during login:', error);
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Login Failed',
+                    text: 'An unexpected error occurred. Please try again later.',
+                });
+            } finally {
+                loginButton.textContent = 'Login';
+                loginButton.disabled = false;
+            }
         });
     },
 };
