@@ -103,6 +103,8 @@ const FormPost = {
           icon: 'error',
           title: 'Incomplete Form',
           text: 'Please fill out all fields.',
+          color: '#00214D',
+          confirmButtonColor: '#00EBC7',
         });
         return;
       }
