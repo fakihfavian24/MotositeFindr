@@ -64,6 +64,8 @@ const Register = {
           icon: 'error',
           title: 'Incomplete Input',
           text: 'Please fill in all fields.',
+          confirmButtonColor: '#00EBC7',
+          color: '#00214D',
         });
         return;
       }
@@ -81,6 +83,8 @@ const Register = {
           icon: 'success',
           title: 'Registration Successful',
           text: 'You have successfully registered!',
+          confirmButtonColor: '#00EBC7',
+          color: '#00214D',
         });
       } catch (error) {
         console.error('Error during registration:', error);
@@ -88,6 +92,8 @@ const Register = {
           icon: 'error',
           title: 'Registration Failed',
           text: 'An unexpected error occurred. Please try again later.',
+          confirmButtonColor: '#00EBC7',
+          color: '#00214D',
         });
       }
     };
