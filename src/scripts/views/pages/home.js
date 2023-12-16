@@ -2,8 +2,8 @@ const Home = {
   async render() {
     return `
     <jumbotron-section></jumbotron-section>
+    <about-section></about-section>
     <statistic-section></statistic-section>
-    <stolen-section></stolen-section>
     <community-section></community-section>
     `;
   },

@@ -170,35 +170,28 @@ statistic-section {
 
 /* ========== STATISTIC ========== */
 
-/* ========== STOLEN ========== */
+/* ========== ABOUT ========== */
 
-stolen-section {
+about-section {
   margin-top: 5rem;
   border-bottom: 1px solid #eee;
+  
+}
+about-section .about{
+  text-align: center;
 }
 
-.heading-stolen {
-  margin-top: 12rem;
+about-section p {
+  text-align: justify;
 }
 
-.heading-stolen h2 {
+.heading-about h2 {
   font-size: 36px;
   color: #00214D;
   font-weight: bold;
 }
 
-.card-stolen {
-  margin-top: 1rem;
-  margin-left: auto;
-  margin-right: auto;
-  border: none;
-}
-
-.card-img {
-  width: 100px;
-}
-
-/* ========== STOLEN ========== */
+/* ========== ABOUT ========== */
 
 /* ========== COMMUNITY ========== */
 

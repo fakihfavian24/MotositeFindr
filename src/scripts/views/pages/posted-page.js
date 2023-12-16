@@ -17,18 +17,17 @@ const PostedPage = {
                     <input id="searchInput" class="form-control" type="text" placeholder="Enter motor model" aria-label="default input example">
                     </div>
                     <div class="text-center mb-5">
-                    
-                    <div class="dropdown">
-                        <button class="btn btn-filter dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Filter
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#" data-filter="terbaru">Terbaru</a></li>
-                            <li><a class="dropdown-item" href="#" data-filter="terlama">Terlama</a></li>
-                        </ul>
-                    </div>
-                    <br>
-                        <a href="#/searchpages"><button class="btn-search" type="button" id="searchButton">Search</button></a>
+                        <button class="btn-search mb-3" type="button" id="searchButton">Search</button>
+                        <div class="dropdown">
+                            <button class="btn btn-filter dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Filter
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#" data-filter="terbaru">Terbaru</a></li>
+                                <li><a class="dropdown-item" href="#" data-filter="terlama">Terlama</a></li>
+                            </ul>
+                        </div>
+                            
                     </div>
                 </div>
             </section>
@@ -49,6 +48,7 @@ const PostedPage = {
         const searchElement = document.querySelector('#searchInput');
         const motorContainer = document.querySelector('#listPost');
         const filterDropdown = document.querySelector('.dropdown-menu');
+        const searchBtn = document.querySelector('#searchButton');
 
         const dataMotor = await MotorSource.listMotor();
         dataMotor.forEach((motor) => {
@@ -80,12 +80,13 @@ const PostedPage = {
                 const result = await MotorSource.searchMotor(searchElement.value);
                 console.log("result: ", result);
                 renderResult(result);
-            }catch(error){
-                console.error('Error posting comment:', error);
+            } catch (error) {
+                console.error('Error searching motor:', error);
                 throw error;
             }
         };
-        searchElement.clickEvent = onButtonSearchClicked;
+        
+        searchBtn.addEventListener('click', onButtonSearchClicked);
 
         filterDropdown.addEventListener('click', async (event) => {
             event.preventDefault();
