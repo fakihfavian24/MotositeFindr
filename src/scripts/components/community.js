@@ -5,7 +5,7 @@ class Community extends HTMLElement {
 
   render() {
     this.innerHTML = `
-    <section class="community">
+    <section class="community community-section">
       <div class="container">
         <div class="row-card row">
 
@@ -23,7 +23,6 @@ class Community extends HTMLElement {
                 <p class="card-text">P 1554 RP</p>
               </div>
             </div>
-
           </div>
 
           <div class="col col-sm-3">
@@ -35,7 +34,6 @@ class Community extends HTMLElement {
                 <p class="card-text">P 1234 LK</p>
               </div>
             </div>
-
           </div>
 
         </div>
