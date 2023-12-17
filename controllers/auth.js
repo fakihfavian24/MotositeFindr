@@ -8,13 +8,15 @@ module.exports.register = async (req, res) => {
     if (existingUser) {
       return res.status(400).json({ error: 'User with the given email already exists' });
     }
+    if (req.body.password.length < 6) {
+      return res.status(400).json({ error: 'Password must be at least 6 characters long' });
+    }
     const newUser = await new User({
       fullname: req.body.fullname,
       email: req.body.email,
       username: req.body.username,
       password: await bcrypt.hash(req.body.password, 10),
     }).save();
-
     res.status(201).json({ message: 'User registered successfully', user: newUser });
   } catch (error) {
     console.error(error);
