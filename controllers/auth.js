@@ -22,23 +22,30 @@ module.exports.register = async (req, res) => {
   }
 };
 
-module.exports.login = async (req,res)=>{
-  const user = await User.findOne({email:req.body.email})
-  if (user){
-    const password = (bcrypt.compare(req.body.password, user.password))
-      if(password === password ){
-              res.send(
-        {
-          _id:user._id,
-          fullname:user.fullname,
-          email:user.email,
-          password: user.password,
-          token:generateLogToken(user),
-        }
-      )
-    }
-  }}
+module.exports.login = async (req, res) => {
+  try {
+    const user = await User.findOne({ email: req.body.email });
+    
+    if (user) {
+      const isPasswordCorrect = await bcrypt.compare(req.body.password, user.password);
 
+      if (isPasswordCorrect) {
+        res.send({
+          _id: user._id,
+          fullname: user.fullname,
+          email: user.email,
+          token: generateLogToken(user),
+        });
+      } else {
+        res.status(401).send({ message: 'Password salah' });
+      }
+    } else {
+      res.status(404).send({ message: 'Email tidak ditemukan' });
+    }
+  } catch (error) {
+    res.status(500).send({ message: 'Terjadi kesalahan server' });
+  }
+};
 
 module.exports.registerForm = async (req, res) => {
     res.status(200).json({ message: 'Render registration form' });
