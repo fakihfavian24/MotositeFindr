@@ -14,7 +14,7 @@ module.exports.search = async (req, res) => {
     let motors;
     if (req.query.search) {
       const searchRegex = new RegExp(escapeRegex(req.query.search), 'gi');
-      motors = await Motor.find({ title: searchRegex });
+      motors = await Motor.find({ model: searchRegex });
     } else {
       if (req.query.sortBy === 'terbaru') {
         motors = await Motor.find().sort({ dateTime: -1 });
