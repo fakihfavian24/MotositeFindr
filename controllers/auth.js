@@ -24,11 +24,10 @@ module.exports.register = async (req, res) => {
 
 module.exports.login = async (req,res)=>{
   const user = await User.findOne({email:req.body.email})
-  const password = await User.findOne({password:req.body.password})
-
-  if (user && password){
-    if(bcrypt.compare(req.body.password, user.password)){
-      res.send(
+  if (user){
+    const password = (bcrypt.compare(req.body.password, user.password))
+      if(password === password ){
+              res.send(
         {
           _id:user._id,
           fullname:user.fullname,
@@ -38,8 +37,8 @@ module.exports.login = async (req,res)=>{
         }
       )
     }
-  }
-}
+  }}
+
 
 module.exports.registerForm = async (req, res) => {
     res.status(200).json({ message: 'Render registration form' });
