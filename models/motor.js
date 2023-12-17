@@ -9,7 +9,6 @@ const motorSchema = new Schema({
   description: String,
   dateTime: {
     type: Date,
-    default: Date.now,
   },
   imageURL: [{
     type: String
