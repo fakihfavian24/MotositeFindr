@@ -8,7 +8,7 @@ const motorSchema = new Schema({
   model: String,
   description: String,
   dateTime: {
-    type: Date,
+    type: String,
   },
   imageURL: [{
     type: String
@@ -23,10 +23,10 @@ const motorSchema = new Schema({
   }],
 });
 
-motorSchema.methods.getShortFormattedDate = function () {
-  const options = { year: 'numeric', month: 'short', day: 'numeric' };
-  return this.dateTime.toLocaleDateString('en-US', options);
-};
+// motorSchema.methods.getShortFormattedDate = function () {
+//   const options = { year: 'numeric', month: 'short', day: 'numeric' };
+//   return this.dateTime.toLocaleDateString('en-US', options);
+// };
 
 motorSchema.post('findOneAndDelete', async function (doc) {
   if (doc) {
