@@ -24,7 +24,9 @@ module.exports.register = async (req, res) => {
 
 module.exports.login = async (req,res)=>{
   const user = await User.findOne({email:req.body.email})
-  if (user){
+  const password = await User.findOne({password:req.body.password})
+
+  if (user && password){
     if(bcrypt.compare(req.body.password, user.password)){
       res.send(
         {
