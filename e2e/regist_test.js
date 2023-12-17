@@ -15,7 +15,8 @@
 //     I.fillField('fullname', fullName);
 //     I.fillField('email', email);
 //     I.fillField('password', password);
+//     I.wait(2)
 //     I.click('.btn-register');
-//     I.wait(2);
+//     I.wait(3);
 
 // });
