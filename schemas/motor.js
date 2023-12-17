@@ -9,6 +9,6 @@ module.exports.motorSchema = Joi.object({
         dateTime: Joi.string().required(),
         imageURL: {
             type: String,
-        }
+        }. Joi.String().required(),
     }).required(),
 });
