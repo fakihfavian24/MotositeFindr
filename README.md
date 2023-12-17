@@ -6,26 +6,27 @@
 
 #### Pertama silahkan login terlebih dahulu dengan cara klik button login pada pojok kanan atas
 
-<img width="1269" alt="image" src="https://github.com/fakihfavian24/MotositeFindr/assets/142136573/be8b97cd-87d2-423b-b3ce-3243653a3bed">
+<img width="1264" alt="image" src="https://github.com/fakihfavian24/MotositeFindr/assets/142136573/965da855-2f6a-4a9f-b22d-82ee0cb09359">
 
 #### Register
 
-<img width="1263" alt="image" src="https://github.com/Mifthahuddinnn/MotositeFindr/assets/142136573/feeaadfb-77c8-423b-a4fa-d053c77f6e85">
+<img width="1268" alt="image" src="https://github.com/fakihfavian24/MotositeFindr/assets/142136573/64d25272-884e-41ce-8519-0b11628d4d55">
 
-#### . Isi Seluruh form
+#### Isi Seluruh form
 
-<img width="1266" alt="image" src="https://github.com/Mifthahuddinnn/MotositeFindr/assets/142136573/6bc39eb7-7e5e-4123-9315-55df6dfb491b">
+<img width="1266" alt="image" src="https://github.com/fakihfavian24/MotositeFindr/assets/142136573/c09d5915-83b1-4bc1-a1e4-2a9dd1bc0bf9">
 
-#### . Jika berhasil maka akan muncul pop-up Registration Successful
+#### Jika berhasil maka akan muncul pop-up Registration Successful
 
-<img width="1278" alt="image" src="https://github.com/Mifthahuddinnn/MotositeFindr/assets/142136573/3624b11d-bd8d-48ce-bea7-d2d5171b16b3">
+<img width="1277" alt="image" src="https://github.com/fakihfavian24/MotositeFindr/assets/142136573/ce5af8db-8939-4d2c-9e1a-33a78fe15615">
 
-#### . Setelah itu silahkan isi email dan password pada halaman login
+#### Setelah itu silahkan isi email dan password pada halaman login
 
-<img width="1280" alt="image" src="https://github.com/fakihfavian24/MotositeFindr/assets/142136573/27c9e59a-6307-4e23-83a2-d1ca6fc9de4c">
+<img width="1279" alt="image" src="https://github.com/fakihfavian24/MotositeFindr/assets/142136573/ff9985d0-9b1a-41f0-8d43-4b1992026f75">
 
-#### . Jika berhasil akan diarahkan kehalaman searchpages
-<img width="1269" alt="image" src="https://github.com/fakihfavian24/MotositeFindr/assets/142136573/5f685d89-a6ba-4c78-8f84-904a96261299">
+#### Jika berhasil akan diarahkan kehalaman searchpages
+<img width="1265" alt="image" src="https://github.com/fakihfavian24/MotositeFindr/assets/142136573/ed0e8dae-78cd-4c4b-94c1-62b4fc1a7fee">
+
 
 
 
