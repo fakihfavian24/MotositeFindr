@@ -6,7 +6,7 @@ module.exports.motorSchema = Joi.object({
         licensePlate: Joi.string().required(),
         model: Joi.string().required(),
         description: Joi.string().required(),
-        dateTime: Joi.string(),
+        dateTime: Joi.string().require(),
         imageURL: {
             type: String,
         }
