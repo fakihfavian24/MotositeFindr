@@ -7,7 +7,7 @@ class Community extends HTMLElement {
     this.innerHTML = `
     <section class="community community-section">
       <div class="container">
-        <div class="row-card row">
+        <div class="row-card row mt-3">
 
           <div class="heading-community col col-sm-6 text-center">
             <h2>Community Help</h2>

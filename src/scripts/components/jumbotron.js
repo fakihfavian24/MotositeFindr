@@ -15,7 +15,7 @@ class Jumbotron extends HTMLElement {
   render() {
     this.innerHTML = `
     <section class="jumbotron">
-      <div class="p-4 mb-1">
+      <div class="p-5 mb-1">
         <div class="container-fluid py-5">
           <h1 class="fw-bold text-center pt-5" data-aos="fade-right">Find Your Lost Motorcycle</h1>
           <p class="text-center" data-aos="fade-left">Enter the details of your lost motorcycle to start the search</p>
