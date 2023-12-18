@@ -6,7 +6,7 @@
 
 #### Pertama silahkan login terlebih dahulu dengan cara klik button login pada pojok kanan atas
 
-<img width="1264" alt="image" src="https://github.com/fakihfavian24/MotositeFindr/assets/142136573/965da855-2f6a-4a9f-b22d-82ee0cb09359">
+<img width="1264" alt="image" src="https://github.com/fakihfavian24/MotositeFindr/assets/91294645/eede4ac2-1105-49e7-afb6-ed28cabd9140">
 
 #### Register
 
