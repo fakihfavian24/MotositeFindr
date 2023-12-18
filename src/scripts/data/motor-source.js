@@ -88,15 +88,28 @@ class MotorSource {
   }
 
   static async listMotor() {
+    const loader = document.getElementById('loader');
+    
+    // Show loader
+    if(loader) loader.style.display = 'block';
+  
     try {
       const response = await fetch(API_ENDPOINT.LIST);
       if (!response.ok) {
         throw new Error(`Failed to fetch: ${response.status} ${response.statusText}`);
       }
       const responseJson = await response.json();
+  
+      // Hide loader
+      if(loader) loader.style.display = 'none';
+  
       return responseJson.motors;
     } catch (error) {
       console.error('Error fetching data:', error);
+  
+      // Hide loader in case of error
+      if(loader) loader.style.display = 'none';
+  
       throw error;
     }
   }

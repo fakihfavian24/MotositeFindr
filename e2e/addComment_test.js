@@ -3,7 +3,7 @@
 // Scenario('add comment', async ({ I }) => { 
 //     const comment = 'Testing using CodeceptJS';
 //     const email = 'dicoding@gmail.com';
-//     const password = '123';
+//     const password = '12345678';
 
 //     I.amOnPage('/');
 //     I.see('MotositeFindr');

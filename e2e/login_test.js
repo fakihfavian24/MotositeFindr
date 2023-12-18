@@ -10,5 +10,5 @@
 //     I.fillField('email', email);
 //     I.fillField('password', password);
 //     I.click('.btn-login');
-//     I.wait(2);
+//     I.wait(3);
 // });
