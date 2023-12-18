@@ -2,7 +2,7 @@
 
 // Scenario('login', async ({ I }) => {
 //     const email = 'dicoding@gmail.com';
-//     const password = '123';
+//     const password = '12345678';
 
 //     I.amOnPage('/');
 //     I.see('MotositeFindr');
